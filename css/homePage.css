@@ -42,6 +42,45 @@ Title Container Styling
   flex-direction: column;
   font-weight: 200;
   gap: 60px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; 
+}
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#homeText,#viewWorkButton{
+  opacity: 0;
+}
+
+#homeText{
+  animation: slideDownFade 2s ease forwards;
+}
+
+#viewWorkButton{
+  animation: slideUpFade 1.5s ease forwards;
+  animation-delay: 0.7s;
 }
 
 #viewWorkButton a{
