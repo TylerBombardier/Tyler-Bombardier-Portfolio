@@ -1,0 +1,114 @@
+html{
+  scroll-behavior: smooth;
+}
+
+/*
+Home Page Styling
+*/
+
+#homePage{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+/*
+Column Styling
+*/
+
+#col1{
+  width: 40%;
+}
+#col2{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#col3{
+  width: 40%;
+}
+
+/*
+Title Container Styling
+*/
+
+#titleContainer{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: none;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-weight: 200;
+  gap: 60px;
+}
+
+#viewWorkButton a{
+  text-align: center;
+  padding: 10px 70px 10px 70px;
+  border: var(--secondary) solid 2px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 0px 10px var(--accent)
+}
+
+#viewWorkButton a:hover {
+  box-shadow: 0px 0px 3px var(--accent)
+}
+
+#viewWorkButton a::after {
+  content: "↓";
+  transition: transform 0.2s ease;
+  font-size: 1.5em;
+  display: inline-block;
+  position: relative;
+  left: 10px;
+}
+
+#viewWorkButton a:hover::after {
+  transform: translateY(2px);
+}
+
+/*
+Contact Container Styling
+*/
+
+#contactContainer{
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
+}
+
+#contactContainer > div{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#contactContainer img{
+  width: 50px;
+  height: 50px;
+}
+
+/*
+Glitch Text Styling
+*/
+
+#homeText{
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  position: relative;
+  white-space: nowrap;
+}
+
+#homeText > em{
+  color: var(--primary);
+  font-weight: 300;
+}
