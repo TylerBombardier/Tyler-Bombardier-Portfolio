@@ -1,0 +1,13 @@
+html{
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--accent);
+}
