@@ -1,4 +1,4 @@
 #projectPage{
-    background-color: white;
+    background-color: var(--background);
     height: 100vh;
 }

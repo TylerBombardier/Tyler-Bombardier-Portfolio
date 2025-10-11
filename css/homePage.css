@@ -35,7 +35,7 @@ Theme Button Styling
 */
 
 #themeToggle{
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 30px;
   display: flex;
@@ -54,6 +54,7 @@ Theme Button Styling
 }
 
 #themeToggle .icon{
+  user-select: none;
   position: absolute;
   backface-visibility: hidden;
   transition: transform 0.8s ease, opacity 0.3s ease;
@@ -148,6 +149,7 @@ Title Container Styling
 }
 
 #viewWorkButton{
+  user-select: none;
   animation: slideUpFade 1.5s ease forwards;
   animation-delay: 0.7s;
 }
@@ -160,7 +162,7 @@ Title Container Styling
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 0px 10px var(--accent);
+  box-shadow: 0px 0px 25px var(--accent);
   display: inline-block;
 }
 
@@ -190,6 +192,7 @@ Contact Container Styling
   width: 50px;
   height: 50px;
   transition: all 0.2s ease;
+  user-select: none;
 }
 
 #contactContainer img:hover{

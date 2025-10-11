@@ -3,13 +3,13 @@ html{
 }
 
 ::selection {
-  background: var(--primary-200);
-  color: var(--accent-700);
+  background: var(--primary);
+  color: var(--accent);
 }
 
 ::-moz-selection {
-  background: var(--primary-200);
-  color: var(--accent-700);
+  background: var(--primary);
+  color: var(--accent);
 }
 
 html[data-theme="light"] .icon {
