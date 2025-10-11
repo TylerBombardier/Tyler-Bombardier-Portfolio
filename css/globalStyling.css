@@ -3,11 +3,27 @@ html{
 }
 
 ::selection {
-  background: var(--primary);
-  color: var(--accent);
+  background: var(--primary-200);
+  color: var(--accent-700);
 }
 
 ::-moz-selection {
-  background: var(--primary);
-  color: var(--accent);
+  background: var(--primary-200);
+  color: var(--accent-700);
+}
+
+html[data-theme="light"] .socialIcon {
+  filter: brightness(0); /* makes social icons black */
+}
+
+html[data-theme="dark"] .socialIcon {
+  filter: brightness(0) invert(1); /* inverts social icons black to white */
+}
+
+*{
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    filter 0.4s ease,
+    border-color 0.4s ease;
 }
