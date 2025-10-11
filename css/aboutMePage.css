@@ -1,3 +1,6 @@
+/*
+About Me Page Styling
+*/
 #aboutMePage{
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
@@ -5,24 +8,47 @@
     color: black;
 }
 
-#aboutMePage nav{
+
+/*
+Navigation Bar Styling
+*/
+#aboutMePage #navBar{
+    height: 7vh;
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+#aboutMePage nav{
     width: (100% - 5px);
-    height: 7vh;
     background-color: var(--navbar);
+    height: 100%;
 }
 
 #aboutMePage nav div{
     position: absolute;
     right: 50px;
+    height: 100%;
 }
 
 #aboutMePage nav ul{
     display: flex;
-    position: relative;
-    top: 12px;
-    gap: 40px;
+    gap: 20px;
     font-size: 2rem;
+    height: 100%;
+    align-items: center;
+}
+
+#aboutMePage nav ul li{
+    height: 100%;
+}
+
+#aboutMePage nav ul li a {
+  display: flex;                 
+  align-items: center;           
+  height: 100%;                 
+  padding: 0 20px;               
+  text-decoration: none;         
+  color: inherit;                
+  cursor: pointer;          
 }
