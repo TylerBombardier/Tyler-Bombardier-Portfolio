@@ -1,4 +1,28 @@
 #aboutMePage{
-    background-color: var(--background);
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background);
+    color: black;
+}
+
+#aboutMePage nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: (100% - 5px);
+    height: 7vh;
+    background-color: var(--navbar);
+}
+
+#aboutMePage nav div{
+    position: absolute;
+    right: 50px;
+}
+
+#aboutMePage nav ul{
+    display: flex;
+    position: relative;
+    top: 12px;
+    gap: 40px;
+    font-size: 2rem;
 }

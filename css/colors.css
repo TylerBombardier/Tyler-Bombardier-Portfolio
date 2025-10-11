@@ -72,8 +72,13 @@
   --accent-800: rgb(39, 5, 97);
   --accent-900: rgb(19, 2, 49);
   --accent-950: rgb(10, 1, 24);
+
+  --navbar: rgb(192, 158, 250);
 }
 :root[data-theme="dark"] {
+  --navbar: rgb(9, 176, 185);
+
+
   --text-50: rgb(1, 24, 6);
   --text-100: rgb(2, 49, 12);
   --text-200: rgb(4, 98, 24);
@@ -110,28 +115,29 @@
   --primary-900: rgb(204, 255, 215);
   --primary-950: rgb(229, 255, 235);
 
-  --secondary-50: rgb(1, 6, 24);
-  --secondary-100: rgb(2, 12, 49);
-  --secondary-200: rgb(5, 23, 97);
-  --secondary-300: rgb(7, 35, 146);
-  --secondary-400: rgb(9, 46, 195);
-  --secondary-500: rgb(11, 58, 244);
-  --secondary-600: rgb(60, 97, 246);
-  --secondary-700: rgb(109, 137, 248);
-  --secondary-800: rgb(158, 176, 250);
-  --secondary-900: rgb(206, 216, 253);
-  --secondary-950: rgb(231, 235, 254);
+  --secondary-50: rgb(231, 250, 254);
+  --secondary-100: rgb(206, 245, 253);
+  --secondary-200: rgb(158, 235, 250);
+  --secondary-300: rgb(109, 225, 248);
+  --secondary-400: rgb(60, 215, 246);
+  --secondary-500: rgb(11, 205, 244);
+  --secondary-600: rgb(9, 164, 195);
+  --secondary-700: rgb(7, 123, 146);
+  --secondary-800: rgb(5, 82, 97);
+  --secondary-900: rgb(2, 41, 49);
+  --secondary-950: rgb(1, 20, 24);
 
-  --accent-50: rgb(10, 1, 24);
-  --accent-100: rgb(19, 2, 49);
-  --accent-200: rgb(39, 5, 97);
-  --accent-300: rgb(58, 7, 146);
-  --accent-400: rgb(77, 9, 195);
-  --accent-500: rgb(97, 11, 244);
-  --accent-600: rgb(128, 60, 246);
-  --accent-700: rgb(160, 109, 248);
-  --accent-800: rgb(192, 158, 250);
-  --accent-900: rgb(223, 206, 253);
-  --accent-950: rgb(239, 231, 254);
+  
+--accent-50: rgb(231, 253, 254);
+--accent-100: rgb(206, 250, 253);
+--accent-200: rgb(158, 246, 250);
+--accent-300: rgb(109, 241, 248);
+--accent-400: rgb(60, 237, 246);
+--accent-500: rgb(11, 232, 244);
+--accent-600: rgb(9, 186, 195);
+--accent-700: rgb(7, 139, 146);
+--accent-800: rgb(5, 93, 97);
+--accent-900: rgb(2, 46, 49);
+--accent-950: rgb(1, 23, 24);
 
 }
