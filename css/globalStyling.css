@@ -12,11 +12,11 @@ html{
   color: var(--accent-700);
 }
 
-html[data-theme="light"] .socialIcon {
+html[data-theme="light"] .icon {
   filter: brightness(0); /* makes social icons black */
 }
 
-html[data-theme="dark"] .socialIcon {
+html[data-theme="dark"] .icon {
   filter: brightness(0) invert(1); /* inverts social icons black to white */
 }
 

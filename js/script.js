@@ -11,3 +11,14 @@ toggle.addEventListener("click", ()=>{
     }
 });
 
+let myButton = document.getElementById("themeToggle");
+const cooldownTime = 700; //In miliseconds
+
+myButton.addEventListener("click",()=>{
+    myButton.disabled = true;
+    console.log("Theme Changed, myButton disabled.")
+    setTimeout(()=>{
+        myButton.disabled = false;
+        console.log("myButton re-enabled.")
+    },cooldownTime)
+})
