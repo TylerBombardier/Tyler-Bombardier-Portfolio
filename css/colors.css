@@ -144,3 +144,21 @@ Store the color values for switching between site themes
 --accent-950: rgb(1, 23, 24);
 
 }
+
+html[data-theme="light"] .icon {
+  filter: brightness(0); /* makes social icons black */
+}
+
+html[data-theme="dark"] .icon {
+  filter: brightness(0) invert(1); /* inverts social icons black to white */
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--accent);
+}

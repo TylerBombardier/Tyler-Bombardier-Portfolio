@@ -2,24 +2,6 @@ html{
   scroll-behavior: smooth;
 }
 
-::selection {
-  background: var(--primary);
-  color: var(--accent);
-}
-
-::-moz-selection {
-  background: var(--primary);
-  color: var(--accent);
-}
-
-html[data-theme="light"] .icon {
-  filter: brightness(0); /* makes social icons black */
-}
-
-html[data-theme="dark"] .icon {
-  filter: brightness(0) invert(1); /* inverts social icons black to white */
-}
-
 *{
   transition:
     background-color 0.2s ease,
