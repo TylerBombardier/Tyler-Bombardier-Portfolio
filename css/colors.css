@@ -1,3 +1,6 @@
+/*
+Store the color values for switching between site themes
+*/
 :root[data-theme="light"] {
   --text: rgb(1, 25, 7);
   --background: rgb(241, 254, 244);
