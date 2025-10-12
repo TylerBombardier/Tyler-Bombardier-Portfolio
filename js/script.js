@@ -37,7 +37,7 @@ window.addEventListener("scroll",()=>{
     let navbar = document.getElementById("navBar");
     let homePage = document.getElementById("homePage");
 
-    const dropPoint = homePage.offsetHeight * 0.8;
+    const dropPoint = homePage.offsetHeight * 0.7;
 
     if(window.scrollY >= dropPoint){
         navbar.classList.add("visible");

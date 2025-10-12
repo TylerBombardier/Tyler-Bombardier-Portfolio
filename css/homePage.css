@@ -192,7 +192,7 @@ Contact Container Styling
 #contactContainer img{
   width: 50px;
   height: 50px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
   user-select: none;
 }
 
