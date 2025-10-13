@@ -3,7 +3,91 @@ About Me Page Styling
 */
 #aboutMePage{
     height: 100vh;
+    min-height: 700px;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--background);
+    background-color: var(--secondaryBackground);
     color: var(--text);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+/*
+aboutIndex Styling
+*/
+
+#aboutMePage #aboutIndex{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aboutMePage ul{
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+}
+
+#aboutMePage ul li{
+    position: relative;
+    padding: 15px 0 15px 0;
+    transform: skewX(-12deg);
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+    text-shadow: 3px 3px 5px var(--accentText);
+    cursor: pointer;
+}
+
+#aboutMePage #aboutIndex li#aboutMe { margin-left: 80px; }
+#aboutMePage #aboutIndex li#education { margin-left: 50px; }
+#aboutMePage #aboutIndex li#skills { margin-left: 20px; }
+
+#aboutMePage #aboutIndex li:hover {
+  color: var(--secondary-300);
+  transform: skewX(-12deg) scale(1.05) translateX(5px);
+  text-shadow: 5px 5px 10px var(--accentText);
+}
+
+.menu-item{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.expandingBar{
+    position: absolute;
+    width: 5px;              
+    height: 30px;             
+    min-width: 5px;
+    min-height: 30px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+#aboutIndex .menu-item h2 {
+    padding-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover .expandingBar{
+    width: 50px;
+}
+
+#aboutIndex .menu-item:hover h2 {
+  transform: translateX(50px);
+}
+    
+
+/*
+aboutContent Styling
+*/
+
+#aboutMePage #aboutContent{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

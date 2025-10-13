@@ -4,16 +4,20 @@ Store the color values for switching between site themes
 :root[data-theme="light"] {
   --text: rgb(1, 25, 7);
   --background: rgb(241, 254, 244);
+  --secondaryBackground: rgb(231, 235, 254);
   --primary: rgb(118, 255, 148);
   --secondary: rgb(124, 149, 249);
   --accent: rgb(135, 71, 246);
+  --accentText: rgb(135, 71, 246);
 }
 :root[data-theme="dark"] {
   --text: rgb(231, 254, 236);
   --background: rgb(32, 32, 32);
+  --secondaryBackground: rgb(30, 40, 45);
   --primary: rgb(118, 255, 148);
   --secondary: rgb(6, 111, 132);
   --accent: rgb(9, 176, 185);
+  --accentText: rgb(140, 0, 255);
 }
 :root[data-theme="light"] {
   --text-50: rgb(231, 254, 236);
