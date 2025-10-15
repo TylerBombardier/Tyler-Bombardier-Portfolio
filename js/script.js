@@ -45,3 +45,29 @@ window.addEventListener("scroll",()=>{
         navbar.classList.remove("visible")
     }
 });
+
+/*
+Loads content into the about page on a button press
+*/
+
+let aboutMenuButtons = document.querySelectorAll('.menu-item');
+let aboutContentDiv = document.getElementById("aboutContent");
+
+function loadAboutContent(event){
+    buttonClicked = event.target.textContent;
+    switch(buttonClicked){
+        case "About Me":
+            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
+            break;
+        case "Education":
+            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
+            break;
+        case "My Skills":
+            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
+            break;
+    }
+}
+
+aboutMenuButtons.forEach(button => {
+    button.addEventListener("click",loadAboutContent)
+});
