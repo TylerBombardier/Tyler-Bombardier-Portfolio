@@ -1,7 +1,7 @@
 #projectPage{
-    height: 100vh;
+    height: 300vh;
     min-height: 700px;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--background);
+    background-color: var(--secondaryBackground);
     color: var(--text);
 }

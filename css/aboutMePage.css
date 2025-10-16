@@ -3,7 +3,6 @@ About Me Page Styling
 */
 #aboutMePage{
     height: 100vh;
-    min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--secondaryBackground);
     color: var(--text);
@@ -25,14 +24,14 @@ aboutIndex Styling
 }
 
 #aboutMePage ul{
-    font-size: 6vh;
+    font-size: 3em;
     display: flex;
     justify-content: center;
     align-items: left;
     flex-direction: column;
 }
 
-#aboutMePage ul li{
+#aboutMePage ul li a{
     position: relative;
     padding: 15px 0 2vh 0;
     transform: skewX(-12deg);
@@ -41,15 +40,20 @@ aboutIndex Styling
     cursor: pointer;
 }
 
-#aboutMePage #aboutIndex li#aboutMe { margin-left: 80px; }
-#aboutMePage #aboutIndex li#education { margin-left: 50px; }
-#aboutMePage #aboutIndex li#skills { margin-left: 20px; }
+#aboutMePage ul li a{
+    text-decoration: none;
+    color: inherit;
+}
 
-#aboutMePage #aboutIndex li:hover {
+#aboutMePage #aboutIndex li a:hover {
   color: var(--secondary-300);
   transform: skewX(-12deg) scale(1.05) translateX(5px);
   text-shadow: 5px 5px 10px var(--accentText);
 }
+
+#aboutMePage #aboutIndex li#aboutMe { margin-left: 80px; }
+#aboutMePage #aboutIndex li#education { margin-left: 50px; }
+#aboutMePage #aboutIndex li#skills { margin-left: 20px; }
 
 .menu-item{
     display: flex;
@@ -59,23 +63,24 @@ aboutIndex Styling
 
 .expandingBar{
     position: absolute;
-    width: 1vh;              
-    height: 5vh;             
+    width: 0.7vw;              
+    height: 5vh;     
+    min-height: 1em;       
     background-color: var(--secondary);
-    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
 #aboutIndex .menu-item h2 {
-    padding-left: 10px;
+    padding-left: 18px;
     transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
 .menu-item:hover .expandingBar{
-    width: 7vh;
+    width: 4vw;
 }
 
 #aboutIndex .menu-item:hover h2 {
-  transform: translateX(7vh);
+  transform: translateX(3.5vw);
 }
     
 
@@ -104,4 +109,55 @@ aboutContent Styling
     position: absolute;
     text-align: justify;
     padding: 0 100px 0 100px;
+}
+
+/*
+Adpative Styling
+*/
+
+@media screen and (max-width: 1044px) {
+    #aboutMePage{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 200vh;
+    }
+
+    #aboutMePage #aboutIndex{
+        margin-bottom: 5vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #aboutMePage #aboutIndex{
+        margin-bottom: 5vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #aboutMePage #aboutContent{
+        padding-top: 90px;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+    }
+
+    #aboutMePage #aboutContent #aboutContentHeader{
+        margin-bottom: 5vh;
+        top: inherit;
+        position: relative;
+    }
+
+    #aboutMePage #aboutContent #aboutContentBody{
+        top: inherit;
+        position: relative;
+        padding: 0 5vw 0 5vw;
+    }
 }

@@ -68,9 +68,11 @@ let contentData = {
 let aboutMenuButtons = document.querySelectorAll(".menu-item");
 let aboutContentHeader = document.getElementById("aboutContentHeader");
 let aboutContentBody = document.getElementById("aboutContentBody");
+aboutContentHeader.innerHTML = contentData["aboutMe"].header;
+aboutContentBody.innerHTML = contentData["aboutMe"].body;
 
 function loadAboutContent(event){
-    let buttonClickedName = event.target.parentElement.id;
+    let buttonClickedName = event.target.closest(".menu-item").id;
     let content = contentData[buttonClickedName];
     if (content) {
         aboutContentHeader.innerHTML = content.header;

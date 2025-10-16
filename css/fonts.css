@@ -3,3 +3,8 @@
     src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("woff2"),
         url("../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("woff");
 }
+
+@font-face {
+    font-family: "Blooshooz";
+    src: url("../fonts/blooshooz/blooshooz/Blooshooz.ttf") format("woff2"),
+}

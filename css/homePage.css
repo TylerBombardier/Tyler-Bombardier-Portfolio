@@ -109,7 +109,7 @@ Title Container Styling
 }
 
 #homeText{
-  font-size: 3.5rem;
+  font-size: 4vw;
   letter-spacing: 2px;
   position: relative;
   white-space: nowrap;
@@ -157,6 +157,9 @@ Title Container Styling
 }
 
 #viewWorkButton a{
+  font-size: 2vh;
+  min-width: 7vh;
+  min-height: 2vh;
   text-align: center;
   padding: 10px 70px 10px 70px;
   border: var(--secondary) solid 2px;

@@ -146,11 +146,11 @@ Store the color values for switching between site themes
 }
 
 html[data-theme="light"] .icon {
-  filter: brightness(0); /* makes social icons black */
+  filter: brightness(0); /* makes icons black */
 }
 
 html[data-theme="dark"] .icon {
-  filter: brightness(0) invert(1); /* inverts social icons black to white */
+  filter: brightness(0) invert(1); /* inverts icons black to white */
 }
 
 ::selection {
