@@ -7,43 +7,13 @@ About Me Page Styling
     background-color: var(--secondaryBackground);
     color: var(--text);
     display: flex;
-    justify-content: space-around;
     align-items: center;
     position: relative;
 }
 
 /*
-aboutIndex Styling
+Expanind Bar stylig
 */
-
-#aboutMePage #aboutIndex{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#aboutMePage ul{
-    font-size: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-}
-
-#aboutMePage ul li a{
-    position: relative;
-    padding: 15px 0 2vh 0;
-    transform: skewX(-12deg);
-    transition: transform 0.2s ease, text-shadow 0.2s ease;
-    text-shadow: 3px 3px 5px var(--accentText);
-    cursor: pointer;
-}
-
-#aboutMePage ul li a{
-    text-decoration: none;
-    color: inherit;
-}
 
 #aboutMePage #aboutIndex li a:hover {
   color: var(--secondary-300);
@@ -65,13 +35,15 @@ aboutIndex Styling
     position: absolute;
     width: 0.7vw;              
     height: 5vh;     
-    min-height: 1em;       
+    min-height: 1em; 
+    min-width: 0.2em;      
     background-color: var(--secondary);
     transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
 #aboutIndex .menu-item h2 {
     padding-left: 18px;
+    text-wrap: nowrap;
     transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
@@ -81,6 +53,40 @@ aboutIndex Styling
 
 #aboutIndex .menu-item:hover h2 {
   transform: translateX(3.5vw);
+}
+
+/*
+aboutIndex Styling
+*/
+
+#aboutMePage #aboutIndex{
+    padding-left: 2vw;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aboutMePage ul{
+    font-size: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+}
+
+#aboutMePage ul li a{
+    position: relative;
+    padding: 15px 0 2vh 0;
+    transform: skewX(-12deg);
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+    text-shadow: 3px 3px 5px var(--accentText);
+    cursor: pointer;
+}
+
+#aboutMePage ul li a{
+    text-decoration: none;
+    color: inherit;
 }
     
 
@@ -108,45 +114,82 @@ aboutContent Styling
     top: 30%;
     position: absolute;
     text-align: justify;
-    padding: 0 100px 0 100px;
+    padding: 0 70px 0 70px;
 }
 
 /*
 Adpative Styling
 */
 
-@media screen and (max-width: 1044px) {
+@media screen and (max-width: 970px) {
+    #aboutMePage #aboutContent{
+        font-size: 1.7em;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #aboutMePage #aboutContent{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 744px) {
     #aboutMePage{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 200vh;
     }
 
     #aboutMePage #aboutIndex{
-        margin-bottom: 5vh;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    #aboutMePage #aboutIndex{
-        margin-bottom: 5vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    #aboutIndex .menu-item h2 {
+        padding-left: 10px;
+        text-wrap: nowrap;
+        transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
+    }
+
+    .expandingBar{
+        position: absolute;
+        width: 0.7vw;              
+        height: 3vw;     
+        min-height: 1em; 
+        min-width: 0.2em;      
+        background-color: var(--secondary);
+        transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
+    }
+
+    .menu-item:hover .expandingBar{
+        width: 4vw;
+    }
+
+    #aboutIndex .menu-item:hover h2 {
+        transform: translateX(3.5vw);
+    }
+
+    #aboutMePage ul{
+        font-size: 4vw;
+        gap: 7vw;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
     }
+
+    #aboutMePage #aboutIndex li#aboutMe { margin-left: 0px; }
+    #aboutMePage #aboutIndex li#education { margin-left: 0px; }
+    #aboutMePage #aboutIndex li#skills { margin-left: 0px; }
 
     #aboutMePage #aboutContent{
-        padding-top: 90px;
+        padding-top: 30px;
         width: 100%;
         height: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 2em;
     }
 
     #aboutMePage #aboutContent #aboutContentHeader{
