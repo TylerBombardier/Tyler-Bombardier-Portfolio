@@ -50,21 +50,33 @@ window.addEventListener("scroll",()=>{
 Loads content into the about page on a button press
 */
 
+let contentData = {
+    "About Me": {
+        header: "<h1>About Me</h1>",
+        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+    },
+    "Education": {
+        header: "<h1>Education</h1>",
+        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+    },
+    "My Skills": {
+        header: "<h1>My Skills</h1>",
+        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+    }
+};
+
 let aboutMenuButtons = document.querySelectorAll('.menu-item');
-let aboutContentDiv = document.getElementById("aboutContent");
+let aboutContentHeader = document.getElementById("aboutContentHeader");
+let aboutContentBody = document.getElementById("aboutContentBody");
 
 function loadAboutContent(event){
-    buttonClicked = event.target.textContent;
-    switch(buttonClicked){
-        case "About Me":
-            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
-            break;
-        case "Education":
-            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
-            break;
-        case "My Skills":
-            aboutContentDiv.innerHTML = `<p>${buttonClicked}</p>`
-            break;
+    let buttonClickedName = event.target.textContent.trim();
+    let content = contentData[buttonClickedName];
+    if (content) {
+        aboutContentHeader.innerHTML = content.header;
+        aboutContentBody.innerHTML = content.body;
+    } else {
+        aboutContentBody.innerHTML = "<p>Content not found</p>";
     }
 }
 

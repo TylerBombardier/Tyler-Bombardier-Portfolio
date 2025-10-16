@@ -1,6 +1,6 @@
 <html data-theme="light">
     <head>
-        <link rel="stylesheet" href="css/debug.css"> 
+        <!-- <link rel="stylesheet" href="css/debugStyling.css">  -->
         <link rel="stylesheet" href="css/globalStyling.css"> 
         <link rel="stylesheet" href="css/styleReset.css"> 
         <link rel="stylesheet" href="css/fonts.css">
@@ -9,7 +9,11 @@
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
         <link rel="stylesheet" href="css/contactMePage.css"> 
-        <link rel="stylesheet" href="css/colors.css"> 
+        <link rel="stylesheet" href="css/colors.css">
+        <script>
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        </script>
     </head>
 <body>
     <div id="navBar">
@@ -76,6 +80,14 @@
             </ul>
         </div>
         <div id="aboutContent">
+            <div id="aboutContentHeader">
+                <h1></h1>
+            </div>
+            <div id="aboutContentBody">
+                <body>
+
+                </body>
+            </div>
         </div>
     </div>
     <div id="projectPage">

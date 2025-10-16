@@ -9,17 +9,7 @@ Store the color values for switching between site themes
   --secondary: rgb(124, 149, 249);
   --accent: rgb(135, 71, 246);
   --accentText: rgb(135, 71, 246);
-}
-:root[data-theme="dark"] {
-  --text: rgb(231, 254, 236);
-  --background: rgb(32, 32, 32);
-  --secondaryBackground: rgb(30, 40, 45);
-  --primary: rgb(118, 255, 148);
-  --secondary: rgb(6, 111, 132);
-  --accent: rgb(9, 176, 185);
-  --accentText: rgb(140, 0, 255);
-}
-:root[data-theme="light"] {
+
   --text-50: rgb(231, 254, 236);
   --text-100: rgb(206, 253, 218);
   --text-200: rgb(157, 251, 181);
@@ -83,8 +73,15 @@ Store the color values for switching between site themes
   --navbar: rgb(192, 158, 250);
 }
 :root[data-theme="dark"] {
-  --navbar: rgb(9, 176, 185);
+  --text: rgb(231, 254, 236);
+  --background: rgb(32, 32, 32);
+  --secondaryBackground: rgb(30, 40, 45);
+  --primary: rgb(118, 255, 148);
+  --secondary: rgb(6, 111, 132);
+  --accent: rgb(9, 176, 185);
+  --accentText: rgb(140, 0, 255);
 
+  --navbar: rgb(9, 176, 185);
 
   --text-50: rgb(1, 24, 6);
   --text-100: rgb(2, 49, 12);
@@ -135,18 +132,17 @@ Store the color values for switching between site themes
   --secondary-950: rgb(1, 20, 24);
 
   
---accent-50: rgb(231, 253, 254);
---accent-100: rgb(206, 250, 253);
---accent-200: rgb(158, 246, 250);
---accent-300: rgb(109, 241, 248);
---accent-400: rgb(60, 237, 246);
---accent-500: rgb(11, 232, 244);
---accent-600: rgb(9, 186, 195);
---accent-700: rgb(7, 139, 146);
---accent-800: rgb(5, 93, 97);
---accent-900: rgb(2, 46, 49);
---accent-950: rgb(1, 23, 24);
-
+  --accent-50: rgb(231, 253, 254);
+  --accent-100: rgb(206, 250, 253);
+  --accent-200: rgb(158, 246, 250);
+  --accent-300: rgb(109, 241, 248);
+  --accent-400: rgb(60, 237, 246);
+  --accent-500: rgb(11, 232, 244);
+  --accent-600: rgb(9, 186, 195);
+  --accent-700: rgb(7, 139, 146);
+  --accent-800: rgb(5, 93, 97);
+  --accent-900: rgb(2, 46, 49);
+  --accent-950: rgb(1, 23, 24);
 }
 
 html[data-theme="light"] .icon {
