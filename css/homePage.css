@@ -4,10 +4,11 @@ Home Page Styling
 
 #homePage{
   height: 100vh;
+  min-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Courier New', monospace;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--background);
   color: var(--text);
 }
@@ -31,67 +32,10 @@ Column Styling
 }
 
 /*
-Theme Button Styling
-*/
-
-#themeToggle{
-  position: absolute;
-  top: 40px;
-  left: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  perspective: 800px;
-  background: transparent;
-  outline: none;
-  border: none;
-  transition: transform 0.3s ease;
-}
-
-#themeToggle:hover{
-  transform: scale(1.05);
-}
-
-#themeToggle .icon{
-  position: absolute;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease, opacity 0.3s ease;
-}
-
-#themeToggle #sun {
-  transform: rotateY(0deg);
-}
-
-#themeToggle #moon {
-  transform: rotateY(180deg);
-}
-
-html[data-theme="light"] #themeToggle #sun {
-  transform: rotateY(0deg);
-  opacity: 1;
-}
-
-html[data-theme="light"] #themeToggle #moon {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-html[data-theme="dark"] #themeToggle #sun {
-  transform: rotateY(-180deg);
-  opacity: 0;
-}
-
-html[data-theme="dark"] #themeToggle #moon {
-  transform: rotateY(0deg);
-  opacity: 1;
-}
-
-/*
 Title Container Styling
 */
 
-#titleContainer{
+#heroContainer{
   font-family: 'Montserrat', sans-serif;
   text-transform: none;
   display: flex;
@@ -106,10 +50,11 @@ Title Container Styling
 }
 
 #homeText{
-  font-size: 3.5rem;
+  font-size: 4vw;
   letter-spacing: 2px;
   position: relative;
   white-space: nowrap;
+  animation: slideDownFade 2s ease forwards;
 }
 
 #homeText > em{
@@ -143,16 +88,16 @@ Title Container Styling
   opacity: 0;
 }
 
-#homeText{
-  animation: slideDownFade 2s ease forwards;
-}
-
 #viewWorkButton{
+  user-select: none;
   animation: slideUpFade 1.5s ease forwards;
   animation-delay: 0.7s;
 }
 
 #viewWorkButton a{
+  font-size: 2vh;
+  min-width: 7vh;
+  min-height: 2vh;
   text-align: center;
   padding: 10px 70px 10px 70px;
   border: var(--secondary) solid 2px;
@@ -160,7 +105,7 @@ Title Container Styling
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 0px 10px var(--accent);
+  box-shadow: 0px 0px 25px var(--accent);
   display: inline-block;
 }
 
@@ -189,9 +134,30 @@ Contact Container Styling
 #contactContainer img{
   width: 50px;
   height: 50px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
+  user-select: none;
 }
 
 #contactContainer img:hover{
   transform: translateX(-10px) rotate(15deg);
+}
+
+@media screen and (max-width: 950px) {
+  #homeText{
+    font-size: 6vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #homeText{
+    font-size: 6vw;
+    letter-spacing: 2px;
+    position: relative;
+    white-space: nowrap;
+    animation: slideDownFade 2s ease forwards;
+  }
+
+  #heroContainer{
+    margin-bottom: 17vh;
+  }
 }

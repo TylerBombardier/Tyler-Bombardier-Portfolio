@@ -2,27 +2,9 @@ html{
   scroll-behavior: smooth;
 }
 
-::selection {
-  background: var(--primary-200);
-  color: var(--accent-700);
-}
-
-::-moz-selection {
-  background: var(--primary-200);
-  color: var(--accent-700);
-}
-
-html[data-theme="light"] .icon {
-  filter: brightness(0); /* makes social icons black */
-}
-
-html[data-theme="dark"] .icon {
-  filter: brightness(0) invert(1); /* inverts social icons black to white */
-}
-
 *{
   transition:
-    background-color 0.4s ease,
+    background-color 0.2s ease,
     color 0.4s ease,
     filter 0.4s ease,
     border-color 0.4s ease;

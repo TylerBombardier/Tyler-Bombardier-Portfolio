@@ -1,34 +1,55 @@
 <html data-theme="light">
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/debug.css"> 
+        <!-- <link rel="stylesheet" href="css/debugStyling.css">  -->
         <link rel="stylesheet" href="css/globalStyling.css"> 
         <link rel="stylesheet" href="css/styleReset.css"> 
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/navBarStyling.css"> 
         <link rel="stylesheet" href="css/homePage.css"> 
+        <link rel="stylesheet" href="css/themeToggle.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
-        <link rel="stylesheet" href="css/colors.css"> 
+        <link rel="stylesheet" href="css/contactMePage.css"> 
+        <link rel="stylesheet" href="css/colors.css">
+        <!--Detects and applies color theme-->
+        <script>
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        </script>
     </head>
 <body>
+    <div>
+        <button id="themeToggle">
+            <img src="images/moon.svg" id="moon" class="icon" draggable="false">
+            <img src="images/sun2.svg" id="sun" class="icon" draggable="false">
+        </button>
+    </div>
+    <div id="navBar">
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="#homePage">Home</a></li>
+                    <li><a href="#aboutMePage">About Me</a></li>
+                    <li><a href="#projectPage">Projects</a></li>
+                    <li><a href="#contactMePage">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div id="homePage">
         <div id="col1">
-            <div>
-                <button id="themeToggle">
-                    <img src="images/moon.svg" id="moon" class="icon">
-                    <img src="images/sun.svg" id="sun" class="icon">
-                </button>
-            </div>
+            
         </div>
         <div id="col2">
-            <div id="titleContainer">
-                <div id="glitchTextContainer">
+            <div id="heroContainer">
+                <div id="textContainer">
                     <div id="homeText" data-text="Hey, I'm Tyler Bombardier">Hey, I'm <em>Tyler</em>.<br>I'm a software developer.</div>
                 </div>
                 <div id="viewWorkButton">
                     <a href="#aboutMePage">
-                        View My Work
+                        <div>
+                            View My Work
+                        </div>
                     </a>
                 </div>
             </div>
@@ -37,19 +58,61 @@
             <div id="contactContainer">
                 <div>
                     <a href="https://github.com/TylerCodesStudent">
-                        <img src="images/github.svg" class="icon">
+                        <img src="images/github.svg" class="icon" draggable="false">
                     </a>
                     <a href="https://www.linkedin.com/in/tyler-bombardier-4928a3389/">
-                        <img src="images/linkedin-circle.svg" class="icon">
+                        <img src="images/linkedin-circle.svg" class="icon" draggable="false">
                     </a>
                 </div>
             </div>
         </div>
     </div>
     <div id="aboutMePage">
+        <div id="aboutIndex">
+            <ul>
+                <li id="aboutMe" class="menu-item">
+                    <a href="#aboutMePage">
+                        <div class="expandingBar"></div>
+                        <h2>About Me</h2>
+                    </a>
+                </li>
+                <li id="education" class="menu-item">
+                    <a href="#aboutMePage">
+                        <div class="expandingBar"></div>
+                        <h2>Education</h2>
+                    </a>
+                </li>
+                <li id="skills" class="menu-item">
+                    <a href="#aboutMePage">
+                        <div class="expandingBar"></div>
+                        <h2>My Skills</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="aboutContent">
+            <div id="aboutContentHeader">
+                <h1></h1>
+            </div>
+            <div id="aboutContentBody">
+                <p>
 
+                </p>
+            </div>
+        </div>
     </div>
     <div id="projectPage">
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    <div id="contactMePage">
 
     </div>
     <script src="js/script.js"></script> 
