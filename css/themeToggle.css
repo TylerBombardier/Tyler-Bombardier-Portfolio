@@ -1,0 +1,59 @@
+
+/*
+Theme Button Styling
+*/
+
+#themeToggle{
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    perspective: 800px;
+    background: transparent;
+    outline: none;
+    border: none;
+    transition: transform 0.3s ease;
+    z-index: 11;
+}
+
+#themeToggle:hover{
+    transform: scale(1.05);
+}
+
+#themeToggle .icon{
+    user-select: none;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease, opacity 0.3s ease;
+}
+
+#themeToggle #sun {
+    transform: rotateY(0deg);
+}
+
+#themeToggle #moon {
+    transform: rotateY(180deg);
+}
+
+html[data-theme="light"] #themeToggle #sun {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+html[data-theme="light"] #themeToggle #moon {
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+html[data-theme="dark"] #themeToggle #sun {
+    transform: rotateY(-180deg);
+    opacity: 0;
+}
+
+html[data-theme="dark"] #themeToggle #moon {
+    transform: rotateY(0deg);
+    opacity: 1;
+}

@@ -32,69 +32,10 @@ Column Styling
 }
 
 /*
-Theme Button Styling
-*/
-
-#themeToggle{
-  position: fixed;
-  top: 28px;
-  left: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  perspective: 800px;
-  background: transparent;
-  outline: none;
-  border: none;
-  transition: transform 0.3s ease;
-  z-index: 11;
-}
-
-#themeToggle:hover{
-  transform: scale(1.05);
-}
-
-#themeToggle .icon{
-  user-select: none;
-  position: absolute;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease, opacity 0.3s ease;
-}
-
-#themeToggle #sun {
-  transform: rotateY(0deg);
-}
-
-#themeToggle #moon {
-  transform: rotateY(180deg);
-}
-
-html[data-theme="light"] #themeToggle #sun {
-  transform: rotateY(0deg);
-  opacity: 1;
-}
-
-html[data-theme="light"] #themeToggle #moon {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-html[data-theme="dark"] #themeToggle #sun {
-  transform: rotateY(-180deg);
-  opacity: 0;
-}
-
-html[data-theme="dark"] #themeToggle #moon {
-  transform: rotateY(0deg);
-  opacity: 1;
-}
-
-/*
 Title Container Styling
 */
 
-#titleContainer{
+#heroContainer{
   font-family: 'Montserrat', sans-serif;
   text-transform: none;
   display: flex;
@@ -113,6 +54,7 @@ Title Container Styling
   letter-spacing: 2px;
   position: relative;
   white-space: nowrap;
+  animation: slideDownFade 2s ease forwards;
 }
 
 #homeText > em{
@@ -144,10 +86,6 @@ Title Container Styling
 
 #homeText,#viewWorkButton{
   opacity: 0;
-}
-
-#homeText{
-  animation: slideDownFade 2s ease forwards;
 }
 
 #viewWorkButton{
@@ -202,4 +140,24 @@ Contact Container Styling
 
 #contactContainer img:hover{
   transform: translateX(-10px) rotate(15deg);
+}
+
+@media screen and (max-width: 950px) {
+  #homeText{
+    font-size: 6vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #homeText{
+    font-size: 6vw;
+    letter-spacing: 2px;
+    position: relative;
+    white-space: nowrap;
+    animation: slideDownFade 2s ease forwards;
+  }
+
+  #heroContainer{
+    margin-bottom: 17vh;
+  }
 }

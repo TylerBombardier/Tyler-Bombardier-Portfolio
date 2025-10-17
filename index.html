@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/navBarStyling.css"> 
         <link rel="stylesheet" href="css/homePage.css"> 
+        <link rel="stylesheet" href="css/themeToggle.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
         <link rel="stylesheet" href="css/contactMePage.css"> 
@@ -17,6 +18,12 @@
         </script>
     </head>
 <body>
+    <div>
+        <button id="themeToggle">
+            <img src="images/moon.svg" id="moon" class="icon" draggable="false">
+            <img src="images/sun2.svg" id="sun" class="icon" draggable="false">
+        </button>
+    </div>
     <div id="navBar">
         <nav>
             <div>
@@ -31,16 +38,11 @@
     </div>
     <div id="homePage">
         <div id="col1">
-            <div>
-                <button id="themeToggle">
-                    <img src="images/moon.svg" id="moon" class="icon" draggable="false">
-                    <img src="images/sun2.svg" id="sun" class="icon" draggable="false">
-                </button>
-            </div>
+            
         </div>
         <div id="col2">
-            <div id="titleContainer">
-                <div id="glitchTextContainer">
+            <div id="heroContainer">
+                <div id="textContainer">
                     <div id="homeText" data-text="Hey, I'm Tyler Bombardier">Hey, I'm <em>Tyler</em>.<br>I'm a software developer.</div>
                 </div>
                 <div id="viewWorkButton">

@@ -12,7 +12,7 @@ About Me Page Styling
 }
 
 /*
-Expanind Bar stylig
+Expanding Bar styling
 */
 
 #aboutMePage #aboutIndex li a:hover {
@@ -121,7 +121,7 @@ aboutContent Styling
 Adpative Styling
 */
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1008px) {
     #aboutMePage #aboutContent{
         font-size: 1.7em;
     }
@@ -133,7 +133,7 @@ Adpative Styling
     }
 }
 
-@media screen and (max-width: 744px) {
+@media screen and (max-width: 790px) {
     #aboutMePage{
         flex-direction: column;
         align-items: center;
@@ -141,7 +141,7 @@ Adpative Styling
     }
 
     #aboutMePage #aboutIndex{
-        width: 100%;
+        width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;

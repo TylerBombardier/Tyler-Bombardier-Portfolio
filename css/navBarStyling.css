@@ -50,3 +50,32 @@ nav ul li a {
   color: var(--text);              
   cursor: pointer;          
 }
+
+@media screen and (max-width: 925px) {
+    nav ul{
+        font-size: 3.7vw;
+        gap: 1vw;
+    }
+
+    nav div{
+        right: 0px;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    nav ul{
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    nav ul{
+        font-size: 3.2vw;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    nav ul{
+        font-size: 2.8vw;
+    }
+}
