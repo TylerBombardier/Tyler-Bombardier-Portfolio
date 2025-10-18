@@ -4,7 +4,7 @@ About Me Page Styling
 #aboutMePage{
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--secondaryBackground);
+    background-color: var(--background);
     color: var(--text);
     display: flex;
     align-items: center;
@@ -37,8 +37,23 @@ Expanding Bar styling
     height: 5vh;     
     min-height: 1em; 
     min-width: 0.2em;      
-    background-color: var(--secondary);
-    transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
+    background: linear-gradient(90deg, var(--secondary-300), rgba(118, 255, 209, 0.685));
+    background-size: 200%;
+    transition:
+        background-position 0.7s ease,
+        width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6),
+        opacity 1s ease;
+}
+
+.menu-item:hover .expandingBar {
+    width: 4vw;
+    background-position: 100%;
+    opacity: 1;
+}
+
+@keyframes colorShift {
+    from { background-position: 0%; }
+    to { background-position: 100%; }
 }
 
 #aboutIndex .menu-item h2 {
@@ -105,16 +120,55 @@ aboutContent Styling
 
 #aboutMePage #aboutContent #aboutContentHeader{
     top: 15%;
-    position: absolute;
+    position: relative;
     font-size: 2em;
     font-weight: 600;
+    z-index: 0;
 }
 
 #aboutMePage #aboutContent #aboutContentBody{
     top: 30%;
-    position: absolute;
+    position: relative;
     text-align: justify;
     padding: 0 70px 0 70px;
+}
+
+#aboutContentHeader h1{
+    position: relative;
+    z-index: 2;
+}
+
+#aboutContentHeader h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 200px;
+  transform: translate(-50%, -50%) scale(0.6);
+  background: linear-gradient(120deg, var(--navbar), rgba(118, 255, 209, 0.685), var(--secondary));
+  background-size: 300% 300%;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  filter: blur(30px);
+  animation:
+    blobMorph 3s ease-in-out infinite,
+    blobShift 3s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes blobMorph { 
+    0% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; } 
+    25% {border-radius: 50% 60% 40% 60% / 60% 40% 70% 30%; } 
+    50% { border-radius: 70% 30% 50% 50% / 40% 70% 30% 60%; }
+    75% { border-radius: 40% 60% 60% 40% / 70% 30% 50% 50%; }
+    100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; } 
+}
+
+@keyframes blobShift { 
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /*

@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/colors.css">
         <!--Detects and applies color theme-->
         <script>
+            document.documentElement.setAttribute('data-theme', 'dark');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         </script>
@@ -92,7 +93,7 @@
         </div>
         <div id="aboutContent">
             <div id="aboutContentHeader">
-                <h1></h1>
+                <h1>About Me</h1>
             </div>
             <div id="aboutContentBody">
                 <p>

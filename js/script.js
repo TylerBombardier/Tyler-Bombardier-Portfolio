@@ -68,6 +68,7 @@ let contentData = {
 let aboutMenuButtons = document.querySelectorAll(".menu-item");
 let aboutContentHeader = document.getElementById("aboutContentHeader");
 let aboutContentBody = document.getElementById("aboutContentBody");
+
 aboutContentHeader.innerHTML = contentData["aboutMe"].header;
 aboutContentBody.innerHTML = contentData["aboutMe"].body;
 
@@ -78,6 +79,7 @@ function loadAboutContent(event){
         aboutContentHeader.innerHTML = content.header;
         aboutContentBody.innerHTML = content.body;
     } else {
+        aboutContentHeader.innerHTML = "Not Found";
         aboutContentBody.innerHTML = "<p>Content not found</p>";
     }
 }
