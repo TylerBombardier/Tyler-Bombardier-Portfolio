@@ -139,6 +139,7 @@ aboutContent Styling
     position: relative;
     text-align: justify;
     padding: 0 70px 0 70px;
+    font-size: 0.8em;
 }
 
 #aboutContentHeader h1{
@@ -260,9 +261,17 @@ Adpative Styling
     }
 
     #aboutMePage #aboutContent #aboutContentHeader{
-        margin-bottom: 5vh;
+        margin-bottom: 30px;
+        font-size: 4vh;
         top: inherit;
         position: relative;
+    }
+    
+    #aboutContentHeader h1::after {
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 100px;
     }
 
     #aboutMePage #aboutContent #aboutContentBody{
