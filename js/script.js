@@ -76,8 +76,10 @@ function loadAboutContent(event){
     let buttonClickedName = event.target.closest(".menu-item").id;
     let content = contentData[buttonClickedName];
     if (content) {
-        aboutContentHeader.innerHTML = content.header;
-        aboutContentBody.innerHTML = content.body;
+        if(content.header != aboutContentHeader.innerHTML){
+            aboutContentHeader.innerHTML = content.header;
+            aboutContentBody.innerHTML = content.body;
+        }
     } else {
         aboutContentHeader.innerHTML = "Not Found";
         aboutContentBody.innerHTML = "<p>Content not found</p>";
