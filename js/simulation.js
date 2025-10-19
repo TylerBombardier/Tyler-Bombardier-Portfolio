@@ -99,24 +99,46 @@ function applyBlast(x, y, isRepulsive){
     });
 }
 
-document.getElementById("homePage").addEventListener('mousedown', function(event) {
-    event.preventDefault();
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+let isMouseDown = false;
+let currentButton = 0;
+let mouseX = 0;
+let mouseY = 0;
 
-    if (event.button === 0) {
-        // Primary click: Repulsive blast
-        applyBlast(mouseX, mouseY, true);
-    } else if (event.button === 2) {
-        // Right click: Attractive blast
-        applyBlast(mouseX, mouseY, false);
-    }
+//Tracks the mouse's position
+document.getElementById("homePage").addEventListener('mousemove', e => {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+//Update mouse status to clicked
+document.getElementById("homePage").addEventListener("mousedown", e=>{
+    isMouseDown = true;
+    currentButton = e.button;
+});
+
+//Update mouse status to unclicked
+document.getElementById("homePage").addEventListener("mouseup", e=>{
+    isMouseDown = false;
 });
 
 // Prevents the context menu from appearing on the home page
-document.getElementById("homePage").addEventListener('contextmenu', function(event) {
-    event.preventDefault();
+document.getElementById("homePage").addEventListener('contextmenu', e => {
+    e.preventDefault();
 }, true);
+
+//Function plays every frame for continous blasts if you hold down the mouse buttons
+function blastLoop(){
+    if(isMouseDown){
+        if(currentButton === 0){
+            applyBlast(mouseX,mouseY,true);
+        } else if (currentButton === 2){
+            applyBlast(mouseX,mouseY,false);
+        }
+    }
+    requestAnimationFrame(blastLoop);
+}
+
+blastLoop();
 
 
 
