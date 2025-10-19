@@ -51,7 +51,7 @@ function addShape(){
         window.innerHeight - 100,
         50,
         {                    
-            restitution: 1.6, //Controls bounce level
+            restitution: 1.1, //Controls bounce level
             render: { fillStyle: '#4af' }
         }
     )
@@ -68,6 +68,58 @@ var ground = Bodies.rectangle(
         isStatic: true, 
     }
 );
+
+function applyBlast(x, y, isRepulsive){
+    let blastRadius = 1000;
+    let blastStrength = 1;
+
+    Composite.allBodies(world).forEach(shape => {
+        if(!shape.isStatic){
+            let dx = shape.position.x - x;
+            let dy = shape.position.y - y;
+            let distanceTotal = Math.sqrt(dx*dx+dy*dy);
+
+            if(distanceTotal < blastRadius){
+                let forceCurve = Math.min((blastStrength * (1 - distanceTotal/blastRadius)),0.2);
+
+                let force = {
+                    x: (dx / distanceTotal) * forceCurve,
+                    y: (dy / distanceTotal) * forceCurve
+                };
+
+                if(isRepulsive){
+                    force.x *= -1;
+                    force.y *= -1;
+                }
+
+                Body.applyForce(shape, shape.position, force);
+                console.log(`Blast triggered at (${x}, ${y}) — ${isRepulsive ? 'Repel' : 'Attract'}`);
+            }
+        }
+    });
+}
+
+document.getElementById("homePage").addEventListener('mousedown', function(event) {
+    event.preventDefault();
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    if (event.button === 0) {
+        // Primary click: Repulsive blast
+        applyBlast(mouseX, mouseY, true);
+    } else if (event.button === 2) {
+        // Right click: Attractive blast
+        applyBlast(mouseX, mouseY, false);
+    }
+});
+
+// Prevents the context menu from appearing on the home page
+document.getElementById("homePage").addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+}, true);
+
+
+
 
 Composite.add(world, ground); //Add ground & Mouse
 
