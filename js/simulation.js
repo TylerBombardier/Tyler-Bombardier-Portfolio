@@ -26,7 +26,7 @@ var render = Render.create({
     }
 });
 
-// Create Ground to the size of the window
+// Create ground, ceiling, and wall variables. Initialize them to the starting window size.
 var ground = Bodies.rectangle(
     window.innerWidth / 2,
     window.innerHeight + 25,
@@ -69,22 +69,47 @@ var rightWall = Bodies.rectangle(
 
 Composite.add(world, [ground, ceiling, leftWall, rightWall]); //Add ground, ceiling, and walls.
 
-// Resize handling for ground and canvas
+// Resize handling for all static boundary elements and canvas
 function resizeSimulation() {
-    // Resize canvas to fit the new width and height
+    // Resize the canvas element to fit the new width and height
     render.canvas.width = window.innerWidth;
     render.canvas.height = window.innerHeight;
 
-    // Reposition the ground to the new center
+    //Reposition ground
     Body.setPosition(ground, {
         x: window.innerWidth / 2,
         y: window.innerHeight + 25
     });
 
-    // Scale the ground’s width to match new window width
-    var currentWidth = ground.bounds.max.x - ground.bounds.min.x;
-    var scaleX = window.innerWidth / currentWidth;
+    //Reposition left wall
+    Body.setPosition(leftWall, {
+        x: -25,
+        y: window.innerHeight /2,
+    });
+
+    //Reposition right wall
+    Body.setPosition(rightWall, {
+        x: window.innerWidth + 26,
+        y: window.innerHeight / 2,
+    });
+
+    //Reposition ceiling
+    Body.setPosition(ceiling, {
+        x: window.innerWidth /2,
+        y: -26,
+    });
+
+    // Scale the ceiling and ground to the new width
+    let currentWidth = ground.bounds.max.x - ground.bounds.min.x;
+    let scaleX = window.innerWidth / currentWidth;
     Body.scale(ground, scaleX, 1);
+    Body.scale(ceiling, scaleX, 1);
+
+    // Scale the left and right wall to the new height
+    let currentHeight = leftWall.bounds.max.y - leftWall.bounds.min.y;
+    let scaleY = window.innerHeight / currentHeight;
+    Body.scale(leftWall, scaleY, 1);
+    Body.scale(rightWall, scaleY, 1);
 }
 
 //Creates a bouncy circle
@@ -101,6 +126,7 @@ function addShape(){
     Composite.add(world, circle);
 }
 
+//Calculates the blast's effect on all objects in the scene
 function applyBlast(x, y, isRepulsive){
     let blastRadius = 1000;
     let blastStrength = 0.06;
@@ -166,7 +192,7 @@ document.getElementById("homePage").addEventListener('contextmenu', e => {
 
 //Function plays every frame for continous blasts if you hold down the mouse buttons
 function blastLoop(){
-    if(isMouseDown){
+    if(isMouseDown){ //Only applies blast when mouse is clicked
         if(currentButton === 0){
             applyBlast(mouseX,mouseY,false);
         } else if (currentButton === 2){
@@ -188,6 +214,7 @@ addShape();
 addShape();
 addShape();
 
+//Checks for any resizing of the window, calls resize static elements function
 window.addEventListener('resize', resizeSimulation);
 resizeSimulation();
 
