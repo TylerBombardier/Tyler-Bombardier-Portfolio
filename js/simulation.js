@@ -94,9 +94,8 @@ function addShape(){
         window.innerHeight - 100,
         50,
         {                    
-            restitution: 1.1, //Controls bounce level
+            restitution: 0.5, //Controls bounce level
             render: { fillStyle: '#4af' },
-            frictionAir: 0.01
         }
     )
     Composite.add(world, circle);
@@ -179,6 +178,14 @@ function blastLoop(){
 
 blastLoop();
 
+addShape();
+addShape();
+addShape();
+addShape();
+addShape();
+addShape();
+addShape();
+addShape();
 addShape();
 
 window.addEventListener('resize', resizeSimulation);

@@ -111,6 +111,7 @@ Title Container Styling
   padding: 10px 70px 10px 70px;
   border: var(--secondary) solid 2px;
   color: var(--accent);
+  background-color: white;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
