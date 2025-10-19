@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/navBarStyling.css"> 
         <link rel="stylesheet" href="css/homePage.css"> 
+        <link rel="stylesheet" href="css/simulationStyling.css">
         <link rel="stylesheet" href="css/themeToggle.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
@@ -17,8 +18,12 @@
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         </script>
+        <script src="js/matter.js"></script>
+        <script defer src="js/simulation.js"></script>
     </head>
 <body>
+    <div id="physicsContainer">
+    </div>
     <div>
         <button id="themeToggle">
             <img src="images/moon.svg" id="moon" class="icon" draggable="false">
@@ -48,9 +53,7 @@
                 </div>
                 <div id="viewWorkButton">
                     <a href="#aboutMePage">
-                        <div>
-                            View My Work
-                        </div>
+                        View My Work
                     </a>
                 </div>
             </div>
