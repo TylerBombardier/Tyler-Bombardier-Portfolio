@@ -26,6 +26,49 @@ var render = Render.create({
     }
 });
 
+// Create Ground to the size of the window
+var ground = Bodies.rectangle(
+    window.innerWidth / 2,
+    window.innerHeight + 25,
+    window.innerWidth,
+    50,
+    { 
+        isStatic: true, 
+    }
+);
+
+var ceiling = Bodies.rectangle(
+    window.innerWidth /2,
+    -26,
+    window.innerWidth,
+    50,
+    {
+        isStatic: true,
+    }
+)
+
+var leftWall = Bodies.rectangle(
+    -25,
+    window.innerHeight /2,
+    50,
+    window.innerHeight,
+    {
+        isStatic: true,
+    }
+)
+
+var rightWall = Bodies.rectangle(
+    window.innerWidth + 26,
+    window.innerHeight / 2,
+    50,
+    window.innerHeight,
+    {
+        isStatic: true,
+    }
+)
+
+Composite.add(world, [ground, ceiling, leftWall, rightWall]); //Add ground, ceiling, and walls.
+
 // Resize handling for ground and canvas
 function resizeSimulation() {
     // Resize canvas to fit the new width and height
@@ -52,26 +95,16 @@ function addShape(){
         50,
         {                    
             restitution: 1.1, //Controls bounce level
-            render: { fillStyle: '#4af' }
+            render: { fillStyle: '#4af' },
+            frictionAir: 0.01
         }
     )
     Composite.add(world, circle);
 }
 
-// Create Ground to the size of the window
-var ground = Bodies.rectangle(
-    window.innerWidth / 2,
-    window.innerHeight + 25,
-    window.innerWidth,
-    50,
-    { 
-        isStatic: true, 
-    }
-);
-
 function applyBlast(x, y, isRepulsive){
     let blastRadius = 1000;
-    let blastStrength = 1;
+    let blastStrength = 0.06;
 
     Composite.allBodies(world).forEach(shape => {
         if(!shape.isStatic){
@@ -80,20 +113,26 @@ function applyBlast(x, y, isRepulsive){
             let distanceTotal = Math.sqrt(dx*dx+dy*dy);
 
             if(distanceTotal < blastRadius){
-                let forceCurve = Math.min((blastStrength * (1 - distanceTotal/blastRadius)),0.2);
+                let forceCurve = blastStrength * (Math.pow(1 - distanceTotal/blastRadius,2));
 
                 let force = {
                     x: (dx / distanceTotal) * forceCurve,
                     y: (dy / distanceTotal) * forceCurve
                 };
 
-                if(isRepulsive){
+                if(!isRepulsive){
                     force.x *= -1;
                     force.y *= -1;
                 }
 
                 Body.applyForce(shape, shape.position, force);
-                console.log(`Blast triggered at (${x}, ${y}) — ${isRepulsive ? 'Repel' : 'Attract'}`);
+
+                console.log(
+                    `Applying ${isRepulsive ? 'repel' : 'attract'}:`,
+                    force.x.toFixed(4),
+                    force.y.toFixed(4)
+                );
+
             }
         }
     });
@@ -130,20 +169,15 @@ document.getElementById("homePage").addEventListener('contextmenu', e => {
 function blastLoop(){
     if(isMouseDown){
         if(currentButton === 0){
-            applyBlast(mouseX,mouseY,true);
-        } else if (currentButton === 2){
             applyBlast(mouseX,mouseY,false);
+        } else if (currentButton === 2){
+            applyBlast(mouseX,mouseY,true);
         }
     }
     requestAnimationFrame(blastLoop);
 }
 
 blastLoop();
-
-
-
-
-Composite.add(world, ground); //Add ground & Mouse
 
 addShape();
 

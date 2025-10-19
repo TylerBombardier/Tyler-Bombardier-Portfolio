@@ -61,6 +61,7 @@ Title Container Styling
   position: relative;
   white-space: nowrap;
   animation: slideDownFade 2s ease forwards;
+  user-select: none;
 }
 
 #homeText > em{
