@@ -31,10 +31,11 @@ nav div{
 
 nav ul{
     display: flex;
-    gap: 20px;
+    gap: 60px;
     font-size: 2rem;
     height: 100%;
     align-items: center;
+    padding-right: 30px;
 }
 
 nav ul li{
@@ -44,17 +45,16 @@ nav ul li{
 nav ul li a {
   display: flex;                 
   align-items: center;           
-  height: 100%;                 
-  padding: 0 20px;               
+  height: 100%;                             
   text-decoration: none;         
   color: var(--text);              
-  cursor: pointer;          
+  cursor: pointer;        
 }
 
 @media screen and (max-width: 925px) {
     nav ul{
         font-size: 3.7vw;
-        gap: 1vw;
+        gap: 30px;
     }
 
     nav div{

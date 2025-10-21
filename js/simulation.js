@@ -215,7 +215,7 @@ function blastLoop(){
 blastLoop();
 
 //Spawns i number iterations of circles
-for(let i = 0; i < 500; i++){
+for(let i = 0; i < 200; i++){
     addCircle(10,10)
 }
 

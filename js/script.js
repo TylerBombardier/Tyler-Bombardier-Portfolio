@@ -111,6 +111,27 @@ aboutMenuButtons.forEach(button => {
     button.addEventListener("click",loadAboutContent)
 });
 
+let header = document.querySelector('#aboutContentHeader');
+let body = document.querySelector('#aboutContentBody');
+let buttons = document.querySelectorAll('.menu-item'); // replace with your button
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        header.classList.remove('slideIn');
+        body.classList.remove('slideIn');
+
+        // Trigger reflow (forces restart)
+        void header.offsetWidth;
+        void body.offsetWidth;
+
+        // Add class back
+        header.classList.add('slideIn');
+        body.classList.add('slideIn');
+    });
+});
+
+console.log(buttons, header, body);
+
 /*
 Handles the logic for displaying the hero page content
 */
