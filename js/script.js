@@ -54,11 +54,31 @@ Loads content into the about page on a button press
 let contentData = {
     "aboutMe": {
         header: "<h1>About Me</h1>",
-        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+        body: `
+        <p>I'm a Mobile Application Development student St. Clair College with a passion for building unique and challenging projects.</p>
+        <p>
+        I've always been a technically oriented person, 
+        using command blocks and redstone in minecraft,
+        learning how games are made and how they function, it's always been a source of fascination for me.
+        </p>
+        <p>
+        Once I started highschool, I was finally given the oppurtunity to get taught how to program. 
+        Which is where everything started and I learned that coding was an exhilarating type of experience for me,
+        I loved the feeling of creating a program and seeing it come to life.
+        </p>
+        `
     },
     "education": {
         header: "<h1>Education</h1>",
-        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+        body: `
+        <p>My history shows a deep level of experience in technoloy, business, and people skills:</p>
+        <ul>
+            <li>Graduated with honors</li>
+            <li>Awarded Riverside Secondary Citizenship Award</li>
+            <li>Specialized High Skills Major in Business & Technology</li>
+            <li>Co-Op Placement: Code Ninja's</li>
+        </ul>
+        `
     },
     "skills": {
         header: "<h1>My Skills</h1>",
@@ -90,3 +110,7 @@ function loadAboutContent(event){
 aboutMenuButtons.forEach(button => {
     button.addEventListener("click",loadAboutContent)
 });
+
+/*
+Handles the logic for displaying the hero page content
+*/

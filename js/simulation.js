@@ -113,19 +113,25 @@ function resizeSimulation() {
 }
 
 //Creates a bouncy circle
-function addShape(radius, weight){
-    let calculatedDensity = weight / (Math.PI * Math.pow(radius,2));
+function addCircle(radius, weight){
+    let position = randomPosition(0+radius,window.innerWidth-radius,0+radius,window.innerHeight-radius)
     let circle = Bodies.circle(
-        window.innerWidth / 2,
-        window.innerHeight - 100,
+        position.rangeX,
+        position.rangeY,
         radius,
         {                    
             restitution: 0.5, //Controls bounce level
-            density: calculatedDensity,
+            density: weight / (Math.PI * Math.pow(radius,2)),
             render: { fillStyle: '#4af' },
         }
     )
     Composite.add(world, circle);
+}
+
+function randomPosition(minBoundX, maxBoundX, minBoundY, maxBoundY){
+    let rangeX = Math.max(Math.random()*maxBoundX,minBoundX);
+    let rangeY = Math.max(Math.random()*maxBoundY,minBoundY);
+    return {rangeX,rangeY};
 }
 
 //Calculates the blast's effect on all objects in the scene
@@ -208,8 +214,9 @@ function blastLoop(){
 
 blastLoop();
 
-for(let i = 0; i < 20; i++){
-    addShape(50,7.5)
+//Spawns i number iterations of circles
+for(let i = 0; i < 500; i++){
+    addCircle(10,10)
 }
 
 //Checks for any resizing of the window, calls resize static elements function

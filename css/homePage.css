@@ -37,6 +37,10 @@ Column Styling
   z-index: 2;
 }
 
+#col1.invisible,#col2.invisible,#col3.invisible{
+  display: none;
+}
+
 /*
 Title Container Styling
 */
