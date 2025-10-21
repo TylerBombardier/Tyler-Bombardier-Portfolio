@@ -155,6 +155,13 @@ html[data-theme="dark"] .icon {
   filter: brightness(0) invert(1); /* inverts icons black to white */
 }
 
+[data-theme="dark"] .socialIcon[src*="github-mark.png"] {
+  content: url("../images/github-mark-white.png");
+}
+[data-theme="dark"] .socialIcon[src*="InBug-Black.png"] {
+  content: url("../images/InBug-White.png");
+}
+
 ::selection {
   background-color: rgba(118, 255, 209, 0.685);
   color: var(--text);

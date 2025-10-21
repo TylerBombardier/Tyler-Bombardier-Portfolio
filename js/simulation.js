@@ -113,13 +113,15 @@ function resizeSimulation() {
 }
 
 //Creates a bouncy circle
-function addShape(){
-    var circle = Bodies.circle(
+function addShape(radius, weight){
+    let calculatedDensity = weight / (Math.PI * Math.pow(radius,2));
+    let circle = Bodies.circle(
         window.innerWidth / 2,
         window.innerHeight - 100,
-        50,
+        radius,
         {                    
             restitution: 0.5, //Controls bounce level
+            density: calculatedDensity,
             render: { fillStyle: '#4af' },
         }
     )
@@ -129,7 +131,7 @@ function addShape(){
 //Calculates the blast's effect on all objects in the scene
 function applyBlast(x, y, isRepulsive){
     let blastRadius = 1000;
-    let blastStrength = 0.06;
+    let blastStrength = 0.09;
 
     Composite.allBodies(world).forEach(shape => {
         if(!shape.isStatic){
@@ -176,12 +178,14 @@ document.getElementById("homePage").addEventListener('mousemove', e => {
 
 //Update mouse status to clicked
 document.getElementById("homePage").addEventListener("mousedown", e=>{
+    e.preventDefault();
     isMouseDown = true;
     currentButton = e.button;
 });
 
 //Update mouse status to unclicked
 document.getElementById("homePage").addEventListener("mouseup", e=>{
+    e.preventDefault();
     isMouseDown = false;
 });
 
@@ -204,15 +208,9 @@ function blastLoop(){
 
 blastLoop();
 
-addShape();
-addShape();
-addShape();
-addShape();
-addShape();
-addShape();
-addShape();
-addShape();
-addShape();
+for(let i = 0; i < 20; i++){
+    addShape(50,7.5)
+}
 
 //Checks for any resizing of the window, calls resize static elements function
 window.addEventListener('resize', resizeSimulation);

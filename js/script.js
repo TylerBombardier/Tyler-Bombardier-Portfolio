@@ -17,6 +17,7 @@ toggle.addEventListener("click", ()=>{
 /*
 Creates a cooldown for clicking the switch theme button
 */
+
 let myButton = document.getElementById("themeToggle");
 const cooldownTime = 700; //In miliseconds
 
