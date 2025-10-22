@@ -56,7 +56,7 @@ Title Container Styling
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 #homeText{
@@ -66,6 +66,7 @@ Title Container Styling
   white-space: nowrap;
   animation: slideDownFade 2s ease forwards;
   user-select: none;
+  animation-delay: 1s;
 }
 
 #homeText > em{
@@ -103,7 +104,7 @@ Title Container Styling
   position: relative;
   user-select: none;
   animation: slideUpFade 1.5s ease forwards;
-  animation-delay: 0.7s;
+  animation-delay: 1.7s;
   z-index: 10; 
 }
 

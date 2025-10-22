@@ -122,7 +122,7 @@ function addCircle(radius, weight){
         {                    
             restitution: 0.5, //Controls bounce level
             density: weight / (Math.PI * Math.pow(radius,2)),
-            render: { fillStyle: '#4af' },
+            render: { fillStyle: 'rgba(118, 228, 255, 1)' },
         }
     )
     Composite.add(world, circle);

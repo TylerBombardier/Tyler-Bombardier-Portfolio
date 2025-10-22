@@ -8,7 +8,7 @@ Navigation Bar Styling
     min-height: 60px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    transform: translateY(-100%);
+    transform: translateY(-8vh);
     transition: transform 0.4s ease;
     z-index: 10;
 }
@@ -19,23 +19,29 @@ Navigation Bar Styling
 
 nav{
     width: (100% - 5px);
-    background-color: var(--navbar);
+    background-color: transparent;
     height: 100%;
 }
 
 nav div{
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     right: 50px;
     height: 100%;
 }
 
 nav ul{
+    background: linear-gradient(to bottom, rgba(118, 255, 209, 0.685), var(--secondary));
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 5px outset rgba(118, 255, 209, 0.685);
     display: flex;
     gap: 60px;
     font-size: 2rem;
     height: 100%;
     align-items: center;
-    padding-right: 30px;
+    padding: 0 30px 0 30px;
 }
 
 nav ul li{
@@ -48,8 +54,21 @@ nav ul li a {
   height: 100%;                             
   text-decoration: none;         
   color: var(--text);              
-  cursor: pointer;        
+  cursor: pointer;
+  position: relative;   
+  text-shadow: 0px 3px 5px var(--accentText);  
+  transition: transform 0.3s cubic-bezier(0.5, -1, 0.27, 2), text-shadow 0.3s ease-in-out;
 }
+
+nav ul li a:hover{
+    transform: scale(1.1) rotateX(10deg);
+    text-shadow: 0px 3px 10px var(--accentText); 
+}
+
+
+/*
+Adaptive Styling
+*/
 
 @media screen and (max-width: 925px) {
     nav ul{

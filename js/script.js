@@ -111,26 +111,34 @@ aboutMenuButtons.forEach(button => {
     button.addEventListener("click",loadAboutContent)
 });
 
+/*
+Plays slide in animation upon menu item click each time
+*/
+
 let header = document.querySelector('#aboutContentHeader');
 let body = document.querySelector('#aboutContentBody');
-let buttons = document.querySelectorAll('.menu-item'); // replace with your button
+let buttons = document.querySelectorAll('.menu-item');
+
+let activeBtn = null;
 
 buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        header.classList.remove('slideIn');
-        body.classList.remove('slideIn');
+    btn.addEventListener('click', e => {
+        if(btn !== activeBtn){
+            header.classList.remove('slideIn');
+            body.classList.remove('slideIn');
 
-        // Trigger reflow (forces restart)
-        void header.offsetWidth;
-        void body.offsetWidth;
+            // Trigger reflow (forces restart)
+            void header.offsetWidth;
+            void body.offsetWidth;
 
-        // Add class back
-        header.classList.add('slideIn');
-        body.classList.add('slideIn');
+            // Add class back
+            header.classList.add('slideIn');
+            body.classList.add('slideIn');
+
+            activeBtn = btn;
+        }
     });
 });
-
-console.log(buttons, header, body);
 
 /*
 Handles the logic for displaying the hero page content
