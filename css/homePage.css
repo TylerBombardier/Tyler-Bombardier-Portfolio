@@ -172,8 +172,4 @@ Contact Container Styling
     white-space: nowrap;
     animation: slideDownFade 2s ease forwards;
   }
-
-  #heroContainer{
-    margin-bottom: 17vh;
-  }
 }

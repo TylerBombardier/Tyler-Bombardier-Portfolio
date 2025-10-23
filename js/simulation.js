@@ -171,42 +171,62 @@ function applyBlast(x, y, isRepulsive){
     });
 }
 
-let isMouseDown = false;
+let isTouching = false;
 let currentButton = 0;
-let mouseX = 0;
-let mouseY = 0;
+let posX = 0;
+let posY = 0;
 
-//Tracks the mouse's position
-document.getElementById("homePage").addEventListener('mousemove', e => {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+//Track if screen has been touched
+document.getElementById("homePage").addEventListener("touchstart", e=>{
+    isTouching = true;
+    currentButton = 0; //Assume attraction, mobile doesn't have left or right click
+
+    //start position defaults to 0 if this isn't here on first touch
+    posX = e.touches[0].pageX;
+    posY = e.touches[0].pageY;
+})
+
+//Tracks the position of touch
+document.getElementById("homePage").addEventListener("touchmove", e=>{
+    posX = e.touches[0].pageX;
+    posY = e.touches[0].pageY;
+})
+
+document.getElementById("homePage").addEventListener("touchend",e=>{
+    isTouching = false;
+})
+
+//Tracks the mouse's position on the page
+document.getElementById("homePage").addEventListener("mousemove", e => {
+    posX = e.pageX;
+    posY = e.pageY;
 });
 
-//Update mouse status to clicked
+//Tracks if a mouse button is being held down
 document.getElementById("homePage").addEventListener("mousedown", e=>{
     e.preventDefault();
-    isMouseDown = true;
+    isTouching = true;
     currentButton = e.button;
 });
 
-//Update mouse status to unclicked
+//Tracks if a mouse button has stopped being held down
 document.getElementById("homePage").addEventListener("mouseup", e=>{
     e.preventDefault();
-    isMouseDown = false;
+    isTouching = false;
 });
 
-// Prevents the context menu from appearing on the home page
+// Prevents the context menu from appearing on the home page on a right click
 document.getElementById("homePage").addEventListener('contextmenu', e => {
     e.preventDefault();
 }, true);
 
 //Function plays every frame for continous blasts if you hold down the mouse buttons
 function blastLoop(){
-    if(isMouseDown){ //Only applies blast when mouse is clicked
+    if(isTouching){ //Only applies blast when mouse is clicked
         if(currentButton === 0){
-            applyBlast(mouseX,mouseY,false);
+            applyBlast(posX,posY,false);
         } else if (currentButton === 2){
-            applyBlast(mouseX,mouseY,true);
+            applyBlast(posX,posY,true);
         }
     }
     requestAnimationFrame(blastLoop);
