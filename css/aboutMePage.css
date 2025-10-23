@@ -29,6 +29,7 @@ Expanding Bar Styling
     width: 0.5vw;
     height: 4vh;
     min-height: 0.8em;
+    min-width: 0.2em;
     background: linear-gradient(90deg, var(--secondary-300), rgba(118, 255, 209, 0.685));
     transition: width 0.5s cubic-bezier(0.5, -0.55, 0.27, 1.6), background-position 0.7s ease;
     border-radius: 2px;
@@ -72,6 +73,16 @@ Index Layout
     color: inherit;
 }
 
+#aboutIndex ul li:nth-child(1) {
+    padding-left: 40px;
+}
+#aboutIndex ul li:nth-child(2) {
+    padding-left: 20px;
+}
+#aboutIndex ul li:nth-child(3) {
+    padding-left: 0px;
+}
+
 /*
 About Content
 */
@@ -82,16 +93,6 @@ About Content
     align-items: center;
     padding: 0 4vw;
     text-align: left;
-    opacity: 0;
-}
-
-#aboutContentHeader.slideIn,#aboutContentBody.slideIn{
-    animation: slideIn 1s ease forwards;
-}
-
-@keyframes slideIn {
-    0% { transform: translateX(40px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
 }
 
 #aboutContentHeader h1 {
@@ -131,6 +132,22 @@ About Content
     max-width: 700px;
 }
 
+/*Slide in animation styling*/
+
+#aboutContentHeader.slideIn,#aboutContentBody.slideIn{
+    animation: slideIn 1s ease forwards;
+}
+
+#aboutContentBody.slideIn{
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
 /*
 Adaptive Styling
 */
@@ -160,5 +177,15 @@ Adaptive Styling
     #aboutContentHeader h1::after {
         width: 300px;
         height: 100px;
+    }
+
+    #aboutIndex ul li:nth-child(1) {
+        padding-left: 0px;
+    }
+    #aboutIndex ul li:nth-child(2) {
+        padding-left: 0px;
+    }
+    #aboutIndex ul li:nth-child(3) {
+        padding-left: 0px;
     }
 }
