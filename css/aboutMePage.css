@@ -27,11 +27,12 @@ Expanding Bar Styling
 .expandingBar {
     position: absolute;
     width: 0.5vw;
-    height: 4vh;
+    height: 5vh;
     min-height: 0.8em;
     min-width: 0.2em;
+    transform: skewX(-10deg);
     background: linear-gradient(90deg, var(--secondary-300), rgba(118, 255, 209, 0.685));
-    transition: width 0.5s cubic-bezier(0.5, -0.55, 0.27, 1.6), background-position 0.7s ease;
+    transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6), background-position 0.7s ease, transform 0.4s ease;
     border-radius: 2px;
     opacity: 0.9;
 }
@@ -39,10 +40,11 @@ Expanding Bar Styling
 .menu-item:hover .expandingBar {
     width: 4vw;
     background-position: 100%;
+    transform: skewX(-20deg);
 }
 
 #aboutIndex .menu-item h2 {
-    padding-left: 18px;
+    padding-left: 22px;
     transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
@@ -70,7 +72,7 @@ Index Layout
 
 #aboutIndex ul li a {
     text-decoration: none;
-    color: inherit;
+    color: var(--text);
 }
 
 #aboutIndex ul li:nth-child(1) {
@@ -115,7 +117,7 @@ About Content
     background-size: 300% 300%;
     border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
     filter: blur(30px);
-    animation: blobShift 8s ease-in-out infinite alternate;
+    animation: blobShift 2s ease-in-out infinite alternate;
     z-index: -1;
     pointer-events: none;
 }
