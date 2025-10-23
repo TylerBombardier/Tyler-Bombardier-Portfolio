@@ -1,7 +1,7 @@
 /*
-About Me Page Styling
+About Me Page Styling - Simplified
 */
-#aboutMePage{
+#aboutMePage {
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
@@ -9,296 +9,154 @@ About Me Page Styling
     display: flex;
     align-items: center;
     position: relative;
-    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.355);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
     z-index: 5;
-    transition: box-shadow 1s ease;
-}
-
-#aboutMePage:hover {
-    box-shadow: 0px 0px 20px 20px rgb(144, 255, 200);
 }
 
 /*
-Expanding Bar styling
+Expanding Bar Styling
 */
-
-#aboutMePage #aboutIndex li a:hover {
-  color: var(--secondary-300);
-  transform: skewX(-12deg) scale(1.05) translateX(5px);
-  text-shadow: 5px 5px 10px var(--accentText);
-}
-
-#aboutMePage #aboutIndex li#aboutMe { margin-left: 80px; }
-#aboutMePage #aboutIndex li#education { margin-left: 50px; }
-#aboutMePage #aboutIndex li#skills { margin-left: 20px; }
-
-.menu-item{
+.menu-item {
     display: flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    margin: 10px 0;
 }
 
-.expandingBar{
+.expandingBar {
     position: absolute;
-    width: 0.7vw;              
-    height: 5vh;     
-    min-height: 1em; 
-    min-width: 0.2em;      
+    width: 0.5vw;
+    height: 4vh;
+    min-height: 0.8em;
     background: linear-gradient(90deg, var(--secondary-300), rgba(118, 255, 209, 0.685));
-    background-size: 200%;
-    transition:
-        background-position 0.7s ease,
-        width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6),
-        opacity 1s ease;
+    transition: width 0.5s cubic-bezier(0.5, -0.55, 0.27, 1.6), background-position 0.7s ease;
+    border-radius: 2px;
+    opacity: 0.9;
 }
 
 .menu-item:hover .expandingBar {
     width: 4vw;
     background-position: 100%;
-    opacity: 1;
-}
-
-@keyframes colorShift {
-    from { background-position: 0%; }
-    to { background-position: 100%; }
 }
 
 #aboutIndex .menu-item h2 {
     padding-left: 18px;
-    text-wrap: nowrap;
     transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
-.menu-item:hover .expandingBar{
-    width: 4vw;
-}
-
 #aboutIndex .menu-item:hover h2 {
-  transform: translateX(3.5vw);
+    transform: translateX(3vw);
 }
 
 /*
-aboutIndex Styling
+Index Layout
 */
-
-#aboutMePage #aboutIndex{
-    padding-left: 2vw;
-    width: 40%;
+#aboutIndex {
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
 }
 
-#aboutMePage #aboutIndex ul{
-    font-size: 6vh;
+#aboutIndex ul {
+    font-size: 5vh;
     display: flex;
-    justify-content: center;
-    align-items: left;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-#aboutMePage #aboutIndex ul li a{
-    position: relative;
-    padding: 15px 0 2vh 0;
-    transform: skewX(-12deg);
-    transition: transform 0.2s ease, text-shadow 0.2s ease;
-    text-shadow: 3px 3px 5px var(--accentText);
-    cursor: pointer;
-}
-
-#aboutMePage #aboutIndex ul li a{
+#aboutIndex ul li a {
     text-decoration: none;
     color: inherit;
 }
-    
 
 /*
-aboutContent Styling
+About Content
 */
-
-#aboutMePage #aboutContent{
-    width: 100%;
-    height: 80%;
+#aboutContent {
+    width: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 2em;
-    position: relative;
-}
-
-#aboutMePage #aboutContent #aboutContentHeader{
-    top: 15%;
-    position: relative;
-    font-size: 2em;
-    font-weight: 600;
-    z-index: 0;
-    opacity: 0;
-}
-
-#aboutMePage #aboutContent #aboutContentBody{
-    top: 30%;
-    position: relative;
+    padding: 0 4vw;
     text-align: left;
-    padding: 0 70px 0 70px;
-    font-size: 0.8em;
     opacity: 0;
-    animation-delay: 0.2s;
-    overflow-y: hidden;
+    animation: fadeSlideIn 1s ease forwards;
+    animation-delay: 0.3s;
 }
 
-#aboutContentBody.slideIn,#aboutContentHeader.slideIn{
-    animation: slideIn 1s ease forwards
+@keyframes fadeSlideIn {
+    0% { transform: translateX(40px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-#aboutContentHeader h1{
+#aboutContentHeader h1 {
+    font-size: 3em;
+    font-weight: 600;
     position: relative;
-    z-index: 2;
-    user-select: none;
+    margin-bottom: 20px;
 }
 
-#aboutContentBody ul{
-    list-style-type: disc;
-    list-style-position: inside;
-    padding: 10px 0 0 0;
-}
-
-#aboutContentBody p{
-    padding-top: 10px;
-}
-
-/*
-Morphing Blob Styling
-*/
-
+/* Gentle morphing blob */
 #aboutContentHeader h1::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  height: 200px;
-  transform: translate(-50%, -50%) scale(0.6);
-  background: linear-gradient(120deg, var(--navbar), rgba(118, 255, 209, 0.685), var(--secondary));
-  background-size: 300% 300%;
-  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
-  filter: blur(30px);
-  animation:
-    growSize 1s cubic-bezier(0, -0.80, 0.27, 2.5) forwards,
-    blobMorph 3s ease-in-out infinite,
-    blobShift 3s ease-in-out infinite alternate;
-  z-index: -1;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 180px;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: linear-gradient(120deg, var(--navbar), rgba(118, 255, 209, 0.685), var(--secondary));
+    background-size: 300% 300%;
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    filter: blur(30px);
+    animation: blobShift 8s ease-in-out infinite alternate;
+    z-index: -1;
+    pointer-events: none;
 }
 
-@keyframes growSize {
-    0% {transform: translate(-50%, -50%) scale(0.4);}
-    100% {transform: translate(-50%, -50%) scale(0.6);}
-}
-
-@keyframes blobMorph { 
-    0% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; } 
-    25% {border-radius: 50% 60% 40% 60% / 60% 40% 70% 30%; } 
-    50% { border-radius: 70% 30% 50% 50% / 40% 70% 30% 60%; }
-    75% { border-radius: 40% 60% 60% 40% / 70% 30% 50% 50%; }
-    100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; } 
-}
-
-@keyframes blobShift { 
+@keyframes blobShift {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
+/* Body Text */
+#aboutContentBody {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    max-width: 700px;
+}
 
 /*
-Adpative Styling
+Adaptive Styling
 */
-
 @media screen and (max-width: 1000px) {
-    #aboutMePage{
+    #aboutMePage {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #aboutMePage #aboutIndex{
-        width: 50%;
-        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    #aboutIndex .menu-item h2 {
-        padding-left: 10px;
-        text-wrap: nowrap;
-        transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
-    }
-
-    .expandingBar{
-        position: absolute;
-        width: 0.7vw;              
-        height: 3vw;     
-        min-height: 1em; 
-        min-width: 0.2em;      
-        background-color: var(--secondary);
-        transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
-    }
-
-    .menu-item:hover .expandingBar{
-        width: 4vw;
-    }
-
-    #aboutIndex .menu-item:hover h2 {
-        transform: translateX(3.5vw);
-    }
-
-    #aboutMePage #aboutIndex ul{
-        font-size: 5vw;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    #aboutMePage #aboutIndex li#aboutMe { margin-left: 0px; }
-    #aboutMePage #aboutIndex li#education { margin-left: 0px; }
-    #aboutMePage #aboutIndex li#skills { margin-left: 0px; }
-
-    #aboutMePage #aboutContent{
-        padding-top: 60px;
+    #aboutIndex {
         width: 100%;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
+        text-align: center;
+    }
+
+    #aboutIndex ul {
+        font-size: 6vw;
         align-items: center;
     }
 
-    #aboutMePage #aboutContent #aboutContentHeader{
-        margin-bottom: 30px;
-        font-size: 4vh;
-        top: inherit;
+    #aboutContent {
+        width: 90%;
+        padding-top: 40px;
+        text-align: center;
     }
-    
+
     #aboutContentHeader h1::after {
-        top: 50%;
-        left: 50%;
         width: 300px;
         height: 100px;
-    }
-
-    #aboutMePage #aboutContent #aboutContentBody{
-        top: inherit;
-        position: relative;
-        overflow-y: auto;
     }
 }
