@@ -78,7 +78,7 @@ function resizeSimulation() {
     //Reposition ground
     Body.setPosition(ground, {
         x: window.innerWidth / 2,
-        y: window.innerHeight + 25
+        y: window.innerHeight + 25.4
     });
 
     //Reposition left wall
@@ -112,7 +112,62 @@ function resizeSimulation() {
     Body.scale(rightWall, scaleY, 1);
 }
 
-//Creates a bouncy circle
+let isTouching = false;
+let currentButton = 0;
+let posX = 0;
+let posY = 0;
+
+/**
+ * MOBILE TOUCH MEHANIC
+ * Flinging the balls upwards with a touch isn't possible due the same action being linked to scrolling upwards.
+ */
+// //Track if screen has been touched
+
+// document.getElementById("homePage").addEventListener("touchstart", e=>{
+//     isTouching = true;
+//     currentButton = 0; //Assume attraction, mobile doesn't have left or right click
+
+//     //start position defaults to 0 if this isn't here on first touch
+//     posX = e.touches[0].pageX;
+//     posY = e.touches[0].pageY;
+// })
+
+// //Tracks the position of touch
+// document.getElementById("homePage").addEventListener("touchmove", e=>{
+//     posX = e.touches[0].pageX;
+//     posY = e.touches[0].pageY;
+// })
+
+// document.getElementById("homePage").addEventListener("touchend",e=>{
+//     isTouching = false;
+// })
+
+//Tracks the mouse's position on the page
+
+document.getElementById("homePage").addEventListener("mousemove", e => {
+    posX = e.pageX;
+    posY = e.pageY;
+});
+
+//Tracks if a mouse button is being held down
+document.getElementById("homePage").addEventListener("mousedown", e=>{
+    e.preventDefault();
+    isTouching = true;
+    currentButton = e.button;
+});
+
+//Tracks if a mouse button has stopped being held down
+document.getElementById("homePage").addEventListener("mouseup", e=>{
+    e.preventDefault();
+    isTouching = false;
+});
+
+// Prevents the context menu from appearing on the home page on a right click
+document.getElementById("homePage").addEventListener('contextmenu', e => {
+    e.preventDefault();
+}, true);
+
+//Creates a circle of desired size and weight
 function addCircle(radius, weight){
     let position = randomPosition(0+radius,window.innerWidth-radius,0+radius,window.innerHeight-radius)
     let circle = Bodies.circle(
@@ -128,6 +183,7 @@ function addCircle(radius, weight){
     Composite.add(world, circle);
 }
 
+//Calculates a random position within the screen bounds
 function randomPosition(minBoundX, maxBoundX, minBoundY, maxBoundY){
     let rangeX = Math.max(Math.random()*maxBoundX,minBoundX);
     let rangeY = Math.max(Math.random()*maxBoundY,minBoundY);
@@ -170,55 +226,6 @@ function applyBlast(x, y, isRepulsive){
         }
     });
 }
-
-let isTouching = false;
-let currentButton = 0;
-let posX = 0;
-let posY = 0;
-
-//Track if screen has been touched
-document.getElementById("homePage").addEventListener("touchstart", e=>{
-    isTouching = true;
-    currentButton = 0; //Assume attraction, mobile doesn't have left or right click
-
-    //start position defaults to 0 if this isn't here on first touch
-    posX = e.touches[0].pageX;
-    posY = e.touches[0].pageY;
-})
-
-//Tracks the position of touch
-document.getElementById("homePage").addEventListener("touchmove", e=>{
-    posX = e.touches[0].pageX;
-    posY = e.touches[0].pageY;
-})
-
-document.getElementById("homePage").addEventListener("touchend",e=>{
-    isTouching = false;
-})
-
-//Tracks the mouse's position on the page
-document.getElementById("homePage").addEventListener("mousemove", e => {
-    posX = e.pageX;
-    posY = e.pageY;
-});
-
-//Tracks if a mouse button is being held down
-document.getElementById("homePage").addEventListener("mousedown", e=>{
-    e.preventDefault();
-    isTouching = true;
-    currentButton = e.button;
-});
-
-//Tracks if a mouse button has stopped being held down
-document.getElementById("homePage").addEventListener("mouseup", e=>{
-    e.preventDefault();
-    isTouching = false;
-});
-
-// Prevents the context menu from appearing on the home page on a right click
-document.getElementById("homePage").addEventListener('contextmenu', e => {
-    e.preventDefault();
-}, true);
 
 //Function plays every frame for continous blasts if you hold down the mouse buttons
 function blastLoop(){

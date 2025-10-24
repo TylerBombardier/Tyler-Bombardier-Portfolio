@@ -2,7 +2,8 @@
 About Me Page Styling - Simplified
 */
 #aboutMePage {
-    height: 100vh;
+    padding: 3vw;
+    min-height: 50vw;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
     color: var(--text);
@@ -27,10 +28,10 @@ Expanding Bar Styling
 .expandingBar {
     position: absolute;
     width: 0.5vw;
-    height: 5vh;
+    height: 1em;
     min-height: 0.8em;
     min-width: 0.2em;
-    transform: skewX(-10deg);
+    transform: skewX(-20deg);
     background: linear-gradient(90deg, var(--secondary-300), rgba(118, 255, 209, 0.685));
     transition: width 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6), background-position 0.7s ease, transform 0.4s ease;
     border-radius: 2px;
@@ -38,18 +39,18 @@ Expanding Bar Styling
 }
 
 .menu-item:hover .expandingBar {
-    width: 4vw;
+    width: 1em;
     background-position: 100%;
-    transform: skewX(-20deg);
 }
 
 #aboutIndex .menu-item h2 {
     padding-left: 22px;
+    color: var(--text);
     transition: transform 0.4s cubic-bezier(0.5, -0.55, 0.27, 1.6);
 }
 
 #aboutIndex .menu-item:hover h2 {
-    transform: translateX(3vw);
+    transform: translateX(1em);
 }
 
 /*
@@ -76,10 +77,10 @@ Index Layout
 }
 
 #aboutIndex ul li:nth-child(1) {
-    padding-left: 40px;
+    padding-left: 48px;
 }
 #aboutIndex ul li:nth-child(2) {
-    padding-left: 20px;
+    padding-left: 24px;
 }
 #aboutIndex ul li:nth-child(3) {
     padding-left: 0px;
@@ -89,19 +90,21 @@ Index Layout
 About Content
 */
 #aboutContent {
+    padding: 3vw;
     width: 65%;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 4vw;
     text-align: left;
+    overflow-x: hidden;
 }
 
 #aboutContentHeader h1 {
     font-size: 3em;
     font-weight: 600;
     position: relative;
-    margin-bottom: 20px;
+    margin: 30px;
 }
 
 /* Gentle morphing blob */
@@ -111,7 +114,7 @@ About Content
     top: 50%;
     left: 50%;
     width: 600px;
-    height: 180px;
+    height: 150px;
     transform: translate(-50%, -50%) scale(0.5);
     background: linear-gradient(120deg, var(--navbar), rgba(118, 255, 209, 0.685), var(--secondary));
     background-size: 300% 300%;
@@ -129,13 +132,11 @@ About Content
 
 /* Body Text */
 #aboutContentBody {
-    font-size: 1.2em;
+    font-size: 1.15em;
     line-height: 1.6em;
-    max-width: 700px;
 }
 
 /*Slide in animation styling*/
-
 #aboutContentHeader.slideIn,#aboutContentBody.slideIn{
     animation: slideIn 1s ease forwards;
 }
@@ -177,8 +178,8 @@ Adaptive Styling
     }
 
     #aboutContentHeader h1::after {
-        width: 300px;
-        height: 100px;
+        width: 600px;
+        height: 150px;
     }
 
     #aboutIndex ul li:nth-child(1) {

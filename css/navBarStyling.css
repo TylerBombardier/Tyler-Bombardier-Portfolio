@@ -3,24 +3,24 @@ Navigation Bar Styling
 */
 #navBar{
     position: fixed;
+    bottom: 0;
     width: 100%;
     height: 7vh;
     min-height: 60px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    transform: translateY(-100vh);
+    transform: translateX(-100vw);
     transition: transform 1s ease;
     z-index: 10;
 }
 
 #navBar.visible{
-    transform: translateY(0%);
+    transform: translateX(0%);
 }
 
 nav{
-    width: (100% - 5px);
+    width: 100%;
     background-color: transparent;
-    height: 100%;
 }
 
 nav div{
@@ -33,8 +33,8 @@ nav div{
 
 nav ul{
     background: linear-gradient(to bottom, rgba(118, 255, 209, 0.685), var(--secondary));
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     display: flex;
     gap: 60px;
     font-size: 2rem;
@@ -95,5 +95,8 @@ Adaptive Styling
 @media screen and (max-width: 620px) {
     nav ul{
         font-size: 2.8vw;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
 }
