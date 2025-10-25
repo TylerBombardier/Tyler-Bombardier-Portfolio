@@ -22,7 +22,8 @@ var render = Render.create({
         width: window.innerWidth,
         height: window.innerHeight,
         wireframes: false,
-        background: 'transparent'
+        background: 'transparent',
+        airFriction: 0
     }
 });
 
@@ -114,8 +115,44 @@ function resizeSimulation() {
 
 let isTouching = false;
 let currentButton = 0;
-let posX = 0;
-let posY = 0;
+let applyBlastX = 0;
+let applyBlastY = 0;
+let lastScrollY = window.scrollY;
+let scrollDifference = 0;
+
+// Detect scroll, calculate scroll difference, add diffence to offset applyblast location.
+window.addEventListener('scroll', () => {
+    scrollDifference = window.scrollY - lastScrollY;
+    applyBlastY += scrollDifference; //Offsets applyblastY position to account for scrolling
+
+    lastScrollY = window.scrollY;
+});
+
+function applyScrollForce() {
+    if (Math.abs(scrollDifference) > 1) { // Small threshold to ignore tiny jitters
+        let scrollVelocity = scrollDifference * 0.0010; // tune this for sensitivity
+
+        Composite.allBodies(world).forEach(shape => {
+            if (!shape.isStatic) {
+                Body.applyForce(shape, shape.position, { 
+                    x: 0, 
+                    y: scrollVelocity*-1 //Invert so scrolling down pushes the balls up and vice versa
+                });
+
+                console.log(
+                    `Applying Scroll Force:`,
+                    (scrollVelocity*-1).toFixed(4),
+                );
+            }
+        });
+    }
+
+    scrollDifference *= 0.2; //Apply gradual dampening so force applies decreases overtime
+
+    requestAnimationFrame(applyScrollForce);
+}
+
+applyScrollForce();
 
 /**
  * MOBILE TOUCH MEHANIC
@@ -144,9 +181,16 @@ let posY = 0;
 
 //Tracks the mouse's position on the page
 
-document.getElementById("homePage").addEventListener("mousemove", e => {
-    posX = e.pageX;
-    posY = e.pageY;
+window.addEventListener("mousemove", e => {
+    applyBlastX = e.pageX;
+    applyBlastY = e.pageY;
+});
+
+document.getElementById("homePage").addEventListener("scroll", e=>{
+    let scrollDifference = window.scrollY - lastScrollY;
+    applyBlastY += scrollDifference;
+
+    lastScrollY = window.scrollY;
 });
 
 //Tracks if a mouse button is being held down
@@ -191,7 +235,7 @@ function randomPosition(minBoundX, maxBoundX, minBoundY, maxBoundY){
 }
 
 //Calculates the blast's effect on all objects in the scene
-function applyBlast(x, y, isRepulsive){
+function applyCursorForce(x, y, isRepulsive){
     let blastRadius = 1000;
     let blastStrength = 0.09;
 
@@ -231,9 +275,9 @@ function applyBlast(x, y, isRepulsive){
 function blastLoop(){
     if(isTouching){ //Only applies blast when mouse is clicked
         if(currentButton === 0){
-            applyBlast(posX,posY,false);
+            applyCursorForce(applyBlastX,applyBlastY,false);
         } else if (currentButton === 2){
-            applyBlast(posX,posY,true);
+            applyCursorForce(applyBlastX,applyBlastY,true);
         }
     }
     requestAnimationFrame(blastLoop);
