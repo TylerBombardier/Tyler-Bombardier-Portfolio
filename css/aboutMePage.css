@@ -51,7 +51,6 @@ Expanding Bar Styling
 
 #aboutIndex .menu-item:hover h2 {
     transform: translateX(1em);
-    opacity: 0.6;
     color: var(--secondary-700);
     text-shadow: 0px 0px 10px var(--secondary);
 }
@@ -157,6 +156,9 @@ About Content
 /*
 Adaptive Styling
 */
+
+
+
 @media screen and (max-width: 1000px) {
     #aboutMePage {
         flex-direction: column;
@@ -193,5 +195,22 @@ Adaptive Styling
     }
     #aboutIndex ul li:nth-child(3) {
         padding-left: 0px;
+    }
+
+    #aboutIndex .menu-item h2 {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #aboutIndex .menu-item h2 {
+        font-size: 6vw;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    #aboutIndex .menu-item h2 {
+        font-size: 8vw;
     }
 }

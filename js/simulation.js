@@ -154,30 +154,30 @@ function applyScrollForce() {
 
 applyScrollForce();
 
-/**
- * MOBILE TOUCH MEHANIC
- * Flinging the balls upwards with a touch isn't possible due the same action being linked to scrolling upwards.
- */
-// //Track if screen has been touched
+// /** MOBILE TOUCH UNUSED
+//  * MOBILE TOUCH MEHANIC
+//  * Flinging the balls upwards with a touch isn't possible due the same action being linked to scrolling upwards.
+//  */
+// // //Track if screen has been touched
 
-// document.getElementById("homePage").addEventListener("touchstart", e=>{
-//     isTouching = true;
-//     currentButton = 0; //Assume attraction, mobile doesn't have left or right click
+// // document.getElementById("homePage").addEventListener("touchstart", e=>{
+// //     isTouching = true;
+// //     currentButton = 0; //Assume attraction, mobile doesn't have left or right click
 
-//     //start position defaults to 0 if this isn't here on first touch
-//     posX = e.touches[0].pageX;
-//     posY = e.touches[0].pageY;
-// })
+// //     //start position defaults to 0 if this isn't here on first touch
+// //     posX = e.touches[0].pageX;
+// //     posY = e.touches[0].pageY;
+// // })
 
-// //Tracks the position of touch
-// document.getElementById("homePage").addEventListener("touchmove", e=>{
-//     posX = e.touches[0].pageX;
-//     posY = e.touches[0].pageY;
-// })
+// // //Tracks the position of touch
+// // document.getElementById("homePage").addEventListener("touchmove", e=>{
+// //     posX = e.touches[0].pageX;
+// //     posY = e.touches[0].pageY;
+// // })
 
-// document.getElementById("homePage").addEventListener("touchend",e=>{
-//     isTouching = false;
-// })
+// // document.getElementById("homePage").addEventListener("touchend",e=>{
+// //     isTouching = false;
+// // })
 
 //Tracks the mouse's position on the page
 
@@ -286,8 +286,8 @@ function blastLoop(){
 blastLoop();
 
 //Spawns i number iterations of circles
-for(let i = 0; i < 200; i++){
-    addCircle(10,10)
+for(let i = 0; i < 30; i++){
+    addCircle(20,10)
 }
 
 //Checks for any resizing of the window, calls resize static elements function

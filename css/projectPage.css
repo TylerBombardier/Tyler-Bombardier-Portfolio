@@ -1,7 +1,43 @@
 #projectPage{
-    height: 300vh;
-    min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectContainer{
+    padding-top: 15vh;
+    padding-bottom: 5vw;
+    gap: 15vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectOne,#projectTwo,#projectThree{
+    width: 65vw;
+    aspect-ratio: 16/9;
+    position: relative;
+    background-image: radial-gradient( rgb(60, 215, 246),rgb(11, 205, 244),rgb(60, 237, 246));
+}
+
+@media screen and (max-width: 1000px) {
+    #projectOne,#projectTwo,#projectThree{
+        width: 80vw;
+        aspect-ratio: 16/9;
+        position: relative;
+    }
+
+    #projectContainer{
+        padding-top: 5vh;
+        padding-bottom: 5vw;
+        gap: 25vw;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
 }
