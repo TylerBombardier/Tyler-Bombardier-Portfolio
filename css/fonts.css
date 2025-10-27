@@ -8,3 +8,13 @@
     font-family: "Blooshooz";
     src: url("../fonts/blooshooz/blooshooz/Blooshooz.ttf") format("woff2"),
 }
+
+@font-face {
+    font-family: "SansBogle";
+    src: url("../fonts/BBH_Sans_Bogle/BBHSansBogle-Regular.ttf") format("woff2"),
+}
+
+@font-face {
+    font-family: "SansBartle";
+    src: url("../fonts/BBH_Sans_Bartle/BBHSansBartle-Regular.ttf") format("woff2"),
+}

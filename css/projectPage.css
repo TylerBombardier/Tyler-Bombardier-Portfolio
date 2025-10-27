@@ -21,20 +21,44 @@
     width: 65vw;
     aspect-ratio: 16/9;
     position: relative;
-    background-image: radial-gradient( rgb(60, 215, 246),rgb(11, 236, 244),rgba(118, 255, 209, 0.685));
+    background-image: radial-gradient( rgb(108, 212, 232),rgb(102, 223, 227),rgb(46, 162, 185));
+}
+
+.projectTitle{
+    position: relative;
+    right: 1vw;
+    bottom: 5vw;
+}
+
+#projectPage h1{
+    font-family: "SansBogle", sans-serif;
+    letter-spacing: 1vw;
+    font-size: 10vw;
+    position: relative;
+    right: 2vw;
+    color: var(--projectText);
+}
+
+#projectPage h2{
+    font-family: "SansBartle", sans-serif;
+    font-size: 7vw;
+    position: relative;
+    right: 5vw;
+    color: var(--projectText);
+}
+
+#projectPage em{
+    font-weight: 500;
 }
 
 @media screen and (max-width: 1000px) {
     #projectOne,#projectTwo,#projectThree{
-        width: 80vw;
         aspect-ratio: 16/9;
         position: relative;
     }
 
     #projectContainer{
-        padding-top: 5vh;
-        padding-bottom: 5vw;
-        gap: 25vw;
+        gap: 20vw;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
