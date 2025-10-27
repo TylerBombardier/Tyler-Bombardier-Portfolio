@@ -19,26 +19,26 @@ Creates a cooldown for clicking the switch theme button
 */
 
 let myButton = document.getElementById("themeToggle");
-const cooldownTime = 700; //In miliseconds
+const cooldownTime = 700; //Cooldown In miliseconds
 
 myButton.addEventListener("click",()=>{
     myButton.disabled = true;
-    console.log("Theme Changed, myButton disabled.")
+    console.log("Theme Changed, Button disabled.")
     setTimeout(()=>{
         myButton.disabled = false;
-        console.log("myButton re-enabled.")
+        console.log("Button re-enabled.")
     },cooldownTime)
 });
 
 /*
-Handles the drop down of the navbar
+Handles when the navbar appears on the screen
 */
 
 window.addEventListener("scroll",()=>{
     let navbar = document.getElementById("navBar");
     let homePage = document.getElementById("homePage");
 
-    const dropPoint = homePage.offsetHeight * 0.7;
+    const dropPoint = homePage.offsetHeight * 0.7; //Controls what point past the homePage reveals the navbar
 
     if(window.scrollY >= dropPoint){
         navbar.classList.add("visible");
@@ -52,7 +52,7 @@ Loads content into the about page on a button press
 */
 
 let contentData = {
-    "aboutMe": {
+    "aboutMe": { //Talking about myself in a friendly manner.
         header: "<h1>Myself</h1>",
         body: `
         <p>I'm a Mobile Application Development student at St. Clair College with a strong passion for puzzle-solving. 
@@ -70,19 +70,19 @@ let contentData = {
         </p>
         `
     },
-    "education": {
-        header: "<h1>Learning</h1>",
+    "experience": { //Talking about my real experience in the field, the skills and experience I've gained
+        header: "<h1>Experience</h1>",
         body: `
-        <p>My educational life gave me a strong foundation in technology, business, and problem-solving skills:</p>
-        <ul>
-            <li><strong>Languages:</strong></li>
-        </ul>
+        <p>
+        Experience in the field, education, volunteer work, personality.
+        </p>
         `
     },
-    "skills": {
+    "skills": { //Talking about my knowledge of programming languages and my understand of internet and technology
         header: "<h1>My Skills</h1>",
         body: `
         <p>
+        My knowledge in programming languages. Level of skill. Languages I know. 
         </p>
         `
     }
@@ -95,7 +95,7 @@ let aboutContentBody = document.getElementById("aboutContentBody");
 aboutContentHeader.innerHTML = contentData["aboutMe"].header;
 aboutContentBody.innerHTML = contentData["aboutMe"].body;
 
-function loadAboutContent(event){
+function loadAboutContent(event){ //Handles gathering the data for a button press, and indexing it to the content array.
     let buttonClickedName = event.target.closest(".menu-item").id;
     let content = contentData[buttonClickedName];
     if (content) {
@@ -126,10 +126,11 @@ let activeBtn = null;
 buttons.forEach(btn => {
     btn.addEventListener('click', e => {
         if(btn !== activeBtn){
+            // Prepare for restart
             header.classList.remove('slideIn');
             body.classList.remove('slideIn');
 
-            // Trigger reflow (forces restart)
+            // Force restart
             void header.offsetWidth;
             void body.offsetWidth;
 
@@ -141,7 +142,3 @@ buttons.forEach(btn => {
         }
     });
 });
-
-/*
-Handles the logic for displaying the hero page content
-*/

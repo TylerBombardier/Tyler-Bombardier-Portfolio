@@ -21,7 +21,7 @@
     width: 65vw;
     aspect-ratio: 16/9;
     position: relative;
-    background-image: radial-gradient( rgb(60, 215, 246),rgb(11, 205, 244),rgb(60, 237, 246));
+    background-image: radial-gradient( rgb(60, 215, 246),rgb(11, 236, 244),rgba(118, 255, 209, 0.685));
 }
 
 @media screen and (max-width: 1000px) {
