@@ -17,11 +17,16 @@
     align-items: center;
 }
 
-#projectOne,#projectTwo,#projectThree{
+.project{
     width: 65vw;
     aspect-ratio: 16/9;
     position: relative;
     background-image: radial-gradient( rgb(108, 212, 232),rgb(102, 223, 227),rgb(46, 162, 185));
+    transition: transform 0.4s ease;
+}
+
+.project:hover{
+    transform: scale(1.02);
 }
 
 .projectTitle{
@@ -49,6 +54,27 @@
 
 #projectPage em{
     font-weight: 500;
+}
+
+#projectPage button{
+    cursor: pointer;
+    color: white;
+    border: solid white 1px;
+    background-color: transparent;
+    top: 14vw;
+    position: relative;
+    margin: 1vw;
+    width: 10vw;
+    height: 3vw;
+    font-size: 1vw;
+    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.4s ease, letter-spacing 0.4s ease;
+}
+
+#projectPage button:hover{
+    background-color: rgba(255, 255, 255, 0.244);
+    transform: scale(1.05);
+    font-size: 1.05vw;
+    letter-spacing: 0.05vw;
 }
 
 @media screen and (max-width: 1000px) {
