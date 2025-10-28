@@ -142,3 +142,38 @@ buttons.forEach(btn => {
         }
     });
 });
+
+
+const projects = document.querySelectorAll('.project');
+
+projects.forEach(project => {
+    let mouseX = 0, mouseY = 0, rotateX = 0, rotateY = 0;
+    let animationFrame;
+
+    const updateTransform = () => {
+        project.style.transform = `
+            perspective(2000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.05)
+        `;
+        animationFrame = requestAnimationFrame(updateTransform);
+    };
+
+    project.addEventListener('mousemove', e => {
+        const rect = project.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        rotateX = ((mouseY - centerY) / centerY) * 10;
+        rotateY = ((mouseX - centerX) / centerX) * -10;
+
+        if (!animationFrame) {
+            animationFrame = requestAnimationFrame(updateTransform);
+        }
+
+        project.style.boxShadow = `${(mouseX - centerX) / 20}px ${(mouseY - centerY) / 20}px 40px rgba(0,0,0,0.4)`;
+    });
+});

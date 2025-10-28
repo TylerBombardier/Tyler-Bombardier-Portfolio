@@ -22,17 +22,24 @@
     aspect-ratio: 16/9;
     position: relative;
     background-image: radial-gradient( rgb(108, 212, 232),rgb(102, 223, 227),rgb(46, 162, 185));
-    transition: transform 0.4s ease;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    transform-style: preserve-3d;
+    perspective: 800px;
 }
 
-.project:hover{
-    transform: scale(1.02);
-}
+/*
+Project Title Styling
+*/
 
 .projectTitle{
     position: relative;
     right: 1vw;
     bottom: 5vw;
+    transition: transform 0.3s ease;
+}
+
+.project:hover .projectTitle {
+    transform: translateZ(20px);
 }
 
 #projectPage h1{
@@ -56,10 +63,14 @@
     font-weight: 500;
 }
 
+/*
+Button Styling
+*/
+
 #projectPage button{
     cursor: pointer;
-    color: white;
-    border: solid white 1px;
+    color: var(--projectText);
+    border: solid var(--projectText) 1px;
     background-color: transparent;
     top: 14vw;
     position: relative;
@@ -67,14 +78,22 @@
     width: 10vw;
     height: 3vw;
     font-size: 1vw;
-    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.4s ease, letter-spacing 0.4s ease;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 1000;
+    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.8s ease, letter-spacing 0.8s ease-out, width 0.4s ease, height 0.4s ease;
+}
+
+.project:hover button{
+    transform: translateZ(10px);
 }
 
 #projectPage button:hover{
     background-color: rgba(255, 255, 255, 0.244);
-    transform: scale(1.05);
+    transform: scale(1.15) translateZ(25px);
     font-size: 1.05vw;
-    letter-spacing: 0.05vw;
+    letter-spacing: 0.09vw;
+    width: 12vw;
+    height: 5vw;
 }
 
 @media screen and (max-width: 1000px) {
