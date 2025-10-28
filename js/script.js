@@ -143,6 +143,9 @@ buttons.forEach(btn => {
     });
 });
 
+/*
+Apply 3d perspective to all project cards and handle the animation
+*/
 
 const projects = document.querySelectorAll('.project');
 
@@ -173,7 +176,5 @@ projects.forEach(project => {
         if (!animationFrame) {
             animationFrame = requestAnimationFrame(updateTransform);
         }
-
-        project.style.boxShadow = `${(mouseX - centerX) / 20}px ${(mouseY - centerY) / 20}px 40px rgba(0,0,0,0.4)`;
     });
 });

@@ -21,7 +21,7 @@
     width: 65vw;
     aspect-ratio: 16/9;
     position: relative;
-    background-image: radial-gradient( rgb(108, 212, 232),rgb(102, 223, 227),rgb(46, 162, 185));
+    background-color: rgba(118, 228, 255, 1);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     transform-style: preserve-3d;
     perspective: 800px;
@@ -42,24 +42,26 @@ Project Title Styling
     transform: translateZ(20px);
 }
 
-#projectPage h1{
+.project h1{
     font-family: "SansBogle", sans-serif;
     letter-spacing: 1vw;
     font-size: 10vw;
     position: relative;
     right: 2vw;
     color: var(--projectText);
+    letter-spacing: 0.5vw;
 }
 
-#projectPage h2{
+.project h2{
     font-family: "SansBartle", sans-serif;
     font-size: 7vw;
     position: relative;
     right: 5vw;
     color: var(--projectText);
+    letter-spacing: -1vw;
 }
 
-#projectPage em{
+.project em{
     font-weight: 500;
 }
 
@@ -80,7 +82,7 @@ Button Styling
     font-size: 1vw;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 1000;
-    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.8s ease, letter-spacing 0.8s ease-out, width 0.4s ease, height 0.4s ease;
+    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.5s ease, letter-spacing 0.5s ease-out, width 0.4s ease, height 0.4s ease;
 }
 
 .project:hover button{
@@ -90,8 +92,8 @@ Button Styling
 #projectPage button:hover{
     background-color: rgba(255, 255, 255, 0.244);
     transform: scale(1.15) translateZ(25px);
-    font-size: 1.05vw;
-    letter-spacing: 0.09vw;
+    font-size: 1.25vw;
+    letter-spacing: 0.2vw;
     width: 12vw;
     height: 5vw;
 }

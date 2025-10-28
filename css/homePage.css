@@ -70,7 +70,7 @@ Title Container Styling
 }
 
 #homeText > em{
-  color: var(--accent);
+  color: rgba(118, 228, 255, 1);
   font-weight: 300;
 }
 
