@@ -23,7 +23,17 @@ Expanding Bar Styling
     cursor: pointer;
     position: relative;
     margin: 10px 0;
+    perspective: 200px;
 }
+
+/* .menu-item a{
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.menu-item a:hover{
+    transform: rotateY(5deg) rotateY(15deg) scaleY(1.1);
+} */
 
 .expandingBar {
     position: absolute;
