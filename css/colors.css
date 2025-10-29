@@ -11,6 +11,7 @@ Store the color values for switching between site themes
   --accent: rgb(135, 71, 246);
   --accentText: rgb(135, 71, 246);
   --projectText: rgb(0, 14, 45);
+  --projectDescBackground: lightcyan;
 
   --text-50: rgb(231, 254, 236);
   --text-100: rgb(206, 253, 218);
@@ -84,6 +85,7 @@ Store the color values for switching between site themes
   --accent: rgb(9, 176, 185);
   --accentText: rgb(140, 0, 255);
   --projectText: rgb(231, 254, 236);
+  --projectDescBackground: rgb(30, 40, 45);
 
   --navbar: rgb(46, 162, 185);
 

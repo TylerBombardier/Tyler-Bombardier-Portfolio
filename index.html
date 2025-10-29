@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/homePage.css"> 
         <link rel="stylesheet" href="css/simulationStyling.css">
         <link rel="stylesheet" href="css/themeToggle.css">
+        <link rel="stylesheet" href="css/editButton.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
         <link rel="stylesheet" href="css/contactMePage.css"> 
@@ -20,13 +21,14 @@
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         </script>
         <script defer src="js/script.js"></script> 
-        <script src="js/matter.js"></script>
+        <script defer src="js/matter.js"></script>
         <script defer src="js/simulation.js"></script>
     </head>
 <body>
     <div id="physicsContainer">
+        <!--Where the simulation canvas goes in the DOM-->
     </div>
-    <div>
+    <div id="themeContainer">
         <button id="themeToggle">
             <img src="images/moon.svg" id="moon" class="icon" draggable="false">
             <img src="images/sun2.svg" id="sun" class="icon" draggable="false">
@@ -71,6 +73,9 @@
                     </a>
                 </div>
             </div>
+            <button id="editButton">
+                <img src="images/editpencil.svg" class="icon" draggable="false">
+            </button>
         </div>
     </section>
     <section id="aboutMePage">
@@ -117,6 +122,14 @@
                 <button>
                     View Work
                 </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
             </div>
             <div id="projectTwo" class="project">
                 <div class="projectTitle">
@@ -126,6 +139,14 @@
                 <button>
                     View Work
                 </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
             </div>
             <div id="projectThree" class="project">
                 <div class="projectTitle">
@@ -135,6 +156,14 @@
                 <button>
                     View Work
                 </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
             </div>
         </div>
     </section>

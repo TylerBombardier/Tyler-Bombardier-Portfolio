@@ -38,7 +38,7 @@ window.addEventListener("scroll",()=>{
     let navbar = document.getElementById("navBar");
     let homePage = document.getElementById("homePage");
 
-    const dropPoint = homePage.offsetHeight * 0.7; //Controls what point past the homePage reveals the navbar
+    const dropPoint = homePage.offsetHeight * 0.3; //Controls what point past the homePage reveals the navbar
 
     if(window.scrollY >= dropPoint){
         navbar.classList.add("visible");
@@ -176,5 +176,11 @@ projects.forEach(project => {
         if (!animationFrame) {
             animationFrame = requestAnimationFrame(updateTransform);
         }
+    });
+
+    project.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        project.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
 });

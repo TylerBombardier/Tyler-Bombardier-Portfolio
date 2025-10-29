@@ -39,7 +39,7 @@ Project Title Styling
 }
 
 .project:hover .projectTitle {
-    transform: translateZ(20px);
+    transform: translateZ(30px);
 }
 
 .project h1{
@@ -96,6 +96,31 @@ Button Styling
     letter-spacing: 0.2vw;
     width: 12vw;
     height: 5vw;
+}
+
+/*
+Project Description Styling
+*/
+
+.projectDesc{
+    position: absolute;
+    margin: 1vw;
+    top: 12vw;
+    width: 25vw;
+    background-color: var(--projectDescBackground);
+    border-radius: 1vw;
+    font-size: 1vw;
+    padding: 1vw;
+    margin: 1vw;
+    transition: transform 0.4s ease-out;
+}
+
+.project:hover .projectDesc{
+    transform: translateZ(20px);
+}
+
+.project:hover .projectDesc:hover{
+    transform: translateZ(40px);
 }
 
 @media screen and (max-width: 1000px) {

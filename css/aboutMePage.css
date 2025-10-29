@@ -10,7 +10,7 @@ About Me Page Styling - Simplified
     display: flex;
     align-items: center;
     position: relative;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    box-shadow: 0 0 10px var(--text);
     z-index: 5;
 }
 
