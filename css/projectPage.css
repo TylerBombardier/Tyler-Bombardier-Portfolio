@@ -36,6 +36,7 @@ Project Title Styling
     right: 1vw;
     bottom: 5vw;
     transition: transform 0.3s ease;
+    text-shadow: 0 0 0 blue;
 }
 
 .project:hover .projectTitle {
@@ -86,12 +87,12 @@ Button Styling
 }
 
 .project:hover button{
-    transform: translateZ(10px);
+    transform: translateZ(20px);
 }
 
 #projectPage button:hover{
     background-color: rgba(255, 255, 255, 0.244);
-    transform: scale(1.15) translateZ(25px);
+    transform: scale(1.15) translateZ(40px);
     font-size: 1.25vw;
     letter-spacing: 0.2vw;
     width: 12vw;
@@ -108,7 +109,6 @@ Project Description Styling
     top: 12vw;
     width: 25vw;
     background-color: var(--projectDescBackground);
-    border-radius: 1vw;
     font-size: 1vw;
     padding: 1vw;
     margin: 1vw;
