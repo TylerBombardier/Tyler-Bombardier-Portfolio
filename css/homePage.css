@@ -114,13 +114,13 @@ Title Container Styling
   min-height: 2vh;
   text-align: center;
   padding: 10px 70px 10px 70px;
-  border: var(--secondary) solid 2px;
-  color: var(--secondary);
-  background-color: white;
+  border: rgba(118, 228, 255, 1) solid 2px;
+  color: rgba(118, 228, 255, 1);
+  background-color: var(--background);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0px 0px 25px var(--secondary);
+  box-shadow: 0px 0px 25px rgba(118, 228, 255, 1);
   display: inline-block;
   z-index: 11; 
 }

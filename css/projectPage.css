@@ -24,7 +24,7 @@
     background-color: rgba(118, 228, 255, 1);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     transform-style: preserve-3d;
-    perspective: 800px;
+    perspective: 1000px;
 }
 
 /*
@@ -36,7 +36,7 @@ Project Title Styling
     right: 1vw;
     bottom: 5vw;
     transition: transform 0.3s ease;
-    text-shadow: 0 0 0 blue;
+    z-index: 5;
 }
 
 .project:hover .projectTitle {
@@ -113,6 +113,7 @@ Project Description Styling
     padding: 1vw;
     margin: 1vw;
     transition: transform 0.4s ease-out;
+    z-index: 5;
 }
 
 .project:hover .projectDesc{
@@ -121,6 +122,26 @@ Project Description Styling
 
 .project:hover .projectDesc:hover{
     transform: translateZ(40px);
+}
+
+/*
+Graphic Styling
+*/
+
+.projectGraphic{
+    position: absolute;
+    margin: 1vw;
+    height: calc(100% - 2vw);
+    width: 70%;
+    top: 0;
+    right: 0;
+}
+
+.projectGraphic img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to right, transparent, black 30%);
 }
 
 @media screen and (max-width: 1000px) {
