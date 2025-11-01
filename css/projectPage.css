@@ -1,7 +1,160 @@
 #projectPage{
-    height: 300vh;
-    min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectContainer{
+    padding-top: 15vh;
+    padding-bottom: 5vw;
+    gap: 15vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project{
+    width: 65vw;
+    aspect-ratio: 16/9;
+    position: relative;
+    background-color: rgba(118, 228, 255, 1);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/*
+Project Title Styling
+*/
+
+.projectTitle{
+    position: relative;
+    right: 1vw;
+    bottom: 5vw;
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.project:hover .projectTitle {
+    transform: translateZ(30px);
+}
+
+.project h1{
+    font-family: "SansBogle", sans-serif;
+    letter-spacing: 1vw;
+    font-size: 10vw;
+    position: relative;
+    right: 2vw;
+    color: var(--projectText);
+    letter-spacing: 0.5vw;
+}
+
+.project h2{
+    font-family: "SansBartle", sans-serif;
+    font-size: 7vw;
+    position: relative;
+    right: 5vw;
+    color: var(--projectText);
+    letter-spacing: -1vw;
+}
+
+.project em{
+    font-weight: 500;
+}
+
+/*
+Button Styling
+*/
+
+#projectPage button{
+    cursor: pointer;
+    color: var(--projectText);
+    border: solid var(--projectText) 1px;
+    background-color: transparent;
+    top: 14vw;
+    position: relative;
+    margin: 1vw;
+    width: 10vw;
+    height: 3vw;
+    font-size: 1vw;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 1000;
+    transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.5s ease, letter-spacing 0.5s ease-out, width 0.4s ease, height 0.4s ease;
+}
+
+.project:hover button{
+    transform: translateZ(20px);
+}
+
+#projectPage button:hover{
+    background-color: rgba(255, 255, 255, 0.244);
+    transform: scale(1.15) translateZ(40px);
+    font-size: 1.25vw;
+    letter-spacing: 0.2vw;
+    width: 12vw;
+    height: 5vw;
+}
+
+/*
+Project Description Styling
+*/
+
+.projectDesc{
+    position: absolute;
+    margin: 1vw;
+    top: 12vw;
+    width: 25vw;
+    background-color: var(--projectDescBackground);
+    font-size: 1vw;
+    padding: 1vw;
+    margin: 1vw;
+    transition: transform 0.4s ease-out;
+    z-index: 5;
+}
+
+.project:hover .projectDesc{
+    transform: translateZ(20px);
+}
+
+.project:hover .projectDesc:hover{
+    transform: translateZ(40px);
+}
+
+/*
+Graphic Styling
+*/
+
+.projectGraphic{
+    position: absolute;
+    margin: 1vw;
+    height: calc(100% - 2vw);
+    width: 70%;
+    top: 0;
+    right: 0;
+}
+
+.projectGraphic img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to right, transparent, black 30%);
+}
+
+@media screen and (max-width: 1000px) {
+    #projectOne,#projectTwo,#projectThree{
+        aspect-ratio: 16/9;
+        position: relative;
+    }
+
+    #projectContainer{
+        gap: 20vw;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -3,14 +3,16 @@ Home Page Styling
 */
 
 #homePage{
+  position: relative;
   height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--background);
+  background-color: none;
   color: var(--text);
+  z-index: 2;
 }
 
 /*
@@ -31,6 +33,14 @@ Column Styling
   width: 40%;
 }
 
+#col1,#col2,#col3{
+  z-index: 2;
+}
+
+#col1.invisible,#col2.invisible,#col3.invisible{
+  display: none;
+}
+
 /*
 Title Container Styling
 */
@@ -46,7 +56,7 @@ Title Container Styling
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 #homeText{
@@ -55,10 +65,12 @@ Title Container Styling
   position: relative;
   white-space: nowrap;
   animation: slideDownFade 2s ease forwards;
+  user-select: none;
+  animation-delay: 1s;
 }
 
 #homeText > em{
-  color: var(--accent);
+  color: rgba(118, 228, 255, 1);
   font-weight: 300;
 }
 
@@ -89,9 +101,11 @@ Title Container Styling
 }
 
 #viewWorkButton{
+  position: relative;
   user-select: none;
   animation: slideUpFade 1.5s ease forwards;
-  animation-delay: 0.7s;
+  animation-delay: 1.7s;
+  z-index: 10; 
 }
 
 #viewWorkButton a{
@@ -100,17 +114,19 @@ Title Container Styling
   min-height: 2vh;
   text-align: center;
   padding: 10px 70px 10px 70px;
-  border: var(--secondary) solid 2px;
-  color: var(--accent);
+  border: rgba(118, 228, 255, 1) solid 2px;
+  color: rgba(118, 228, 255, 1);
+  background-color: var(--background);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0px 0px 25px var(--accent);
+  box-shadow: 0px 0px 25px rgba(118, 228, 255, 1);
   display: inline-block;
+  z-index: 11; 
 }
 
 #viewWorkButton a:hover {
-  box-shadow: 0px 0px 5px var(--accent);
+  box-shadow: 0px 0px 5px var(--secondary);
   transform: translateY(3px);
 }
 
@@ -155,9 +171,5 @@ Contact Container Styling
     position: relative;
     white-space: nowrap;
     animation: slideDownFade 2s ease forwards;
-  }
-
-  #heroContainer{
-    margin-bottom: 17vh;
   }
 }

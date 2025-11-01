@@ -6,9 +6,12 @@ Store the color values for switching between site themes
   --background: rgb(241, 254, 244);
   --secondaryBackground: rgb(231, 235, 254);
   --primary: rgb(118, 255, 148);
+  --primaryAccent: rgb(118, 255, 148);
   --secondary: rgb(124, 149, 249);
   --accent: rgb(135, 71, 246);
   --accentText: rgb(135, 71, 246);
+  --projectText: rgb(0, 14, 45);
+  --projectDescBackground: rgba(224, 255, 255, 0.85);
 
   --text-50: rgb(231, 254, 236);
   --text-100: rgb(206, 253, 218);
@@ -77,11 +80,14 @@ Store the color values for switching between site themes
   --background: rgb(32, 32, 32);
   --secondaryBackground: rgb(30, 40, 45);
   --primary: rgb(118, 255, 148);
+  --primaryAccent: rgba(118, 255, 148, 0.397);
   --secondary: rgb(6, 111, 132);
   --accent: rgb(9, 176, 185);
   --accentText: rgb(140, 0, 255);
+  --projectText: rgb(231, 254, 236);
+  --projectDescBackground: rgba(30, 40, 45,0.85);
 
-  --navbar: rgb(9, 176, 185);
+  --navbar: rgb(46, 162, 185);
 
   --text-50: rgb(1, 24, 6);
   --text-100: rgb(2, 49, 12);
@@ -153,12 +159,19 @@ html[data-theme="dark"] .icon {
   filter: brightness(0) invert(1); /* inverts icons black to white */
 }
 
+[data-theme="dark"] .socialIcon[src*="github-mark.png"] {
+  content: url("../images/github-mark-white.png");
+}
+[data-theme="dark"] .socialIcon[src*="InBug-Black.png"] {
+  content: url("../images/InBug-White.png");
+}
+
 ::selection {
-  background: var(--primary);
-  color: var(--accent);
+  background-color: rgba(118, 255, 209, 0.685);
+  color: var(--text);
 }
 
 ::-moz-selection {
-  background: var(--primary);
-  color: var(--accent);
+  background-color: rgba(118, 255, 209, 0.685);
+  color: var(--text);
 }

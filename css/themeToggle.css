@@ -15,12 +15,7 @@ Theme Button Styling
     background: transparent;
     outline: none;
     border: none;
-    transition: transform 0.3s ease;
     z-index: 11;
-}
-
-#themeToggle:hover{
-    transform: scale(1.05);
 }
 
 #themeToggle .icon{

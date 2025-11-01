@@ -17,27 +17,28 @@ toggle.addEventListener("click", ()=>{
 /*
 Creates a cooldown for clicking the switch theme button
 */
+
 let myButton = document.getElementById("themeToggle");
-const cooldownTime = 700; //In miliseconds
+const cooldownTime = 700; //Cooldown In miliseconds
 
 myButton.addEventListener("click",()=>{
     myButton.disabled = true;
-    console.log("Theme Changed, myButton disabled.")
+    console.log("Theme Changed, Button disabled.")
     setTimeout(()=>{
         myButton.disabled = false;
-        console.log("myButton re-enabled.")
+        console.log("Button re-enabled.")
     },cooldownTime)
 });
 
 /*
-Handles the drop down of the navbar
+Handles when the navbar appears on the screen
 */
 
 window.addEventListener("scroll",()=>{
     let navbar = document.getElementById("navBar");
     let homePage = document.getElementById("homePage");
 
-    const dropPoint = homePage.offsetHeight * 0.7;
+    const dropPoint = homePage.offsetHeight * 0.3; //Controls what point past the homePage reveals the navbar
 
     if(window.scrollY >= dropPoint){
         navbar.classList.add("visible");
@@ -51,37 +52,135 @@ Loads content into the about page on a button press
 */
 
 let contentData = {
-    "aboutMe": {
-        header: "<h1>About Me</h1>",
-        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+    "aboutMe": { //Talking about myself in a friendly manner.
+        header: "<h1>Myself</h1>",
+        body: `
+        <p>I'm a Mobile Application Development student at St. Clair College with a strong passion for puzzle-solving. 
+        I enjoy transforming my ideas into interactive and functional applications that provide real value to users.
+        </p>
+        <br>
+        <p>
+        I was formally introduced to the idea of coding in high school, and it's where everything began. 
+        I quickly discovered how rewarding it is to solve the puzzle-like challenges in coding and seeing my creations come to life
+        on the screen and I’ve been hooked ever since.
+        </p>
+        <br>
+        <p>
+        When I'm not programming, you can usually find me reading a book, learning something online, or thinking about my next project.
+        </p>
+        `
     },
-    "education": {
-        header: "<h1>Education</h1>",
-        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+    "experience": { //Talking about my real experience in the field, the skills and experience I've gained
+        header: "<h1>Experience</h1>",
+        body: `
+        <p>
+        Experience in the field, education, volunteer work, personality.
+        </p>
+        `
     },
-    "skills": {
+    "skills": { //Talking about my knowledge of programming languages and my understand of internet and technology
         header: "<h1>My Skills</h1>",
-        body: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`
+        body: `
+        <p>
+        My knowledge in programming languages. Level of skill. Languages I know. 
+        </p>
+        `
     }
 };
 
 let aboutMenuButtons = document.querySelectorAll(".menu-item");
 let aboutContentHeader = document.getElementById("aboutContentHeader");
 let aboutContentBody = document.getElementById("aboutContentBody");
+
 aboutContentHeader.innerHTML = contentData["aboutMe"].header;
 aboutContentBody.innerHTML = contentData["aboutMe"].body;
 
-function loadAboutContent(event){
+function loadAboutContent(event){ //Handles gathering the data for a button press, and indexing it to the content array.
     let buttonClickedName = event.target.closest(".menu-item").id;
     let content = contentData[buttonClickedName];
     if (content) {
-        aboutContentHeader.innerHTML = content.header;
-        aboutContentBody.innerHTML = content.body;
+        if(content.header != aboutContentHeader.innerHTML){
+            aboutContentHeader.innerHTML = content.header;
+            aboutContentBody.innerHTML = content.body;
+        }
     } else {
+        aboutContentHeader.innerHTML = "Not Found";
         aboutContentBody.innerHTML = "<p>Content not found</p>";
     }
 }
 
 aboutMenuButtons.forEach(button => {
     button.addEventListener("click",loadAboutContent)
+});
+
+/*
+Plays slide in animation upon menu item click each time
+*/
+
+let header = document.querySelector('#aboutContentHeader');
+let body = document.querySelector('#aboutContentBody');
+let buttons = document.querySelectorAll('.menu-item');
+
+let activeBtn = null;
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', e => {
+        if(btn !== activeBtn){
+            // Prepare for restart
+            header.classList.remove('slideIn');
+            body.classList.remove('slideIn');
+
+            // Force restart
+            void header.offsetWidth;
+            void body.offsetWidth;
+
+            // Add class back
+            header.classList.add('slideIn');
+            body.classList.add('slideIn');
+
+            activeBtn = btn;
+        }
+    });
+});
+
+/*
+Apply 3d perspective to all project cards and handle the animation
+*/
+
+const projects = document.querySelectorAll('.project');
+
+projects.forEach(project => {
+    let mouseX = 0, mouseY = 0, rotateX = 0, rotateY = 0;
+    let animationFrame;
+
+    const updateTransform = () => {
+        project.style.transform = `
+            perspective(2000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.05)
+        `;
+        animationFrame = requestAnimationFrame(updateTransform);
+    };
+
+    project.addEventListener('mousemove', e => {
+        const rect = project.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        rotateX = ((mouseY - centerY) / centerY) * 10;
+        rotateY = ((mouseX - centerX) / centerX) * -10;
+
+        if (!animationFrame) {
+            animationFrame = requestAnimationFrame(updateTransform);
+        }
+    });
+
+    project.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        project.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
 });

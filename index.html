@@ -1,24 +1,34 @@
 <html data-theme="light">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- <link rel="stylesheet" href="css/debugStyling.css">  -->
         <link rel="stylesheet" href="css/globalStyling.css"> 
         <link rel="stylesheet" href="css/styleReset.css"> 
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/navBarStyling.css"> 
         <link rel="stylesheet" href="css/homePage.css"> 
+        <link rel="stylesheet" href="css/simulationStyling.css">
         <link rel="stylesheet" href="css/themeToggle.css">
+        <link rel="stylesheet" href="css/editButton.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
         <link rel="stylesheet" href="css/projectPage.css"> 
         <link rel="stylesheet" href="css/contactMePage.css"> 
         <link rel="stylesheet" href="css/colors.css">
         <!--Detects and applies color theme-->
         <script>
+            document.documentElement.setAttribute('data-theme', 'dark');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         </script>
+        <script defer src="js/script.js"></script> 
+        <script defer src="js/matter.js"></script>
+        <script defer src="js/simulation.js"></script>
     </head>
 <body>
-    <div>
+    <div id="physicsContainer">
+        <!--Where the simulation canvas goes in the DOM-->
+    </div>
+    <div id="themeContainer">
         <button id="themeToggle">
             <img src="images/moon.svg" id="moon" class="icon" draggable="false">
             <img src="images/sun2.svg" id="sun" class="icon" draggable="false">
@@ -29,57 +39,55 @@
             <div>
                 <ul>
                     <li><a href="#homePage">Home</a></li>
-                    <li><a href="#aboutMePage">About Me</a></li>
+                    <li><a href="#aboutMePage">About</a></li>
                     <li><a href="#projectPage">Projects</a></li>
-                    <li><a href="#contactMePage">Contact Me</a></li>
+                    <li><a href="#contactMePage">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div id="homePage">
-        <div id="col1">
+    <section id="homePage">
+        <div id="col1" class="visible">
             
         </div>
-        <div id="col2">
+        <div id="col2" class="visible">
             <div id="heroContainer">
                 <div id="textContainer">
                     <div id="homeText" data-text="Hey, I'm Tyler Bombardier">Hey, I'm <em>Tyler</em>.<br>I'm a software developer.</div>
                 </div>
                 <div id="viewWorkButton">
                     <a href="#aboutMePage">
-                        <div>
-                            View My Work
-                        </div>
+                        About Me
                     </a>
                 </div>
             </div>
         </div>
-        <div id="col3">
+        <div id="col3" class="visible">
             <div id="contactContainer">
                 <div>
-                    <a href="https://github.com/TylerCodesStudent">
-                        <img src="images/github.svg" class="icon" draggable="false">
+                    <a href="https://github.com/TylerBombardier">
+                        <img src="images/github-mark.png" class="socialIcon" draggable="false">
                     </a>
-                    <a href="https://www.linkedin.com/in/tyler-bombardier-4928a3389/">
-                        <img src="images/linkedin-circle.svg" class="icon" draggable="false">
+                    <a href="https://www.linkedin.com/in/tylercodes/">
+                        <img src="images/InBug-Black.png" class="socialIcon" draggable="false">
                     </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="aboutMePage">
+    </section>
+    <section id="aboutMePage">
         <div id="aboutIndex">
             <ul>
                 <li id="aboutMe" class="menu-item">
                     <a href="#aboutMePage">
                         <div class="expandingBar"></div>
-                        <h2>About Me</h2>
+                        <h2>Myself</h2>
                     </a>
                 </li>
-                <li id="education" class="menu-item">
+                <li id="experience" class="menu-item">
                     <a href="#aboutMePage">
                         <div class="expandingBar"></div>
-                        <h2>Education</h2>
+                        <h2>Experience</h2>
                     </a>
                 </li>
                 <li id="skills" class="menu-item">
@@ -91,30 +99,82 @@
             </ul>
         </div>
         <div id="aboutContent">
-            <div id="aboutContentHeader">
-                <h1></h1>
+            <div id="aboutContentHeader" class="slideIn">
+                <h1>About Me</h1>
             </div>
-            <div id="aboutContentBody">
+            <div id="aboutContentBody" class="slideIn">
                 <p>
 
                 </p>
             </div>
         </div>
-    </div>
-    <div id="projectPage">
-        <div>
-
+    </section>
+    <section id="projectPage">
+        <div id="projectContainer">
+            <div id="projectOne" class="project">
+                <div class="projectTitle">
+                    <h1><em>Placeholder</em></h1>
+                    <h2>01</h2>
+                </div>
+                <button>
+                    View Work
+                </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <div class="projectGraphic">
+                    <img src="images/placeholder.png">
+                </div>
+            </div>
+            <div id="projectTwo" class="project">
+                <div class="projectTitle">
+                    <h1><em>Placeholder</em></h1>
+                    <h2>02</h2>
+                </div>
+                <button>
+                    View Work
+                </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <div class="projectGraphic">
+                    <img src="images/placeholder.png">
+                </div>
+            </div>
+            <div id="projectThree" class="project">
+                <div class="projectTitle">
+                    <h1><em>Placeholder</em></h1>
+                    <h2>03</h2>
+                </div>
+                <button>
+                    View Work
+                </button>
+                <div class="projectDesc">
+                    <p>
+                        Short description describing what is inside the project.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <div class="projectGraphic">
+                    <img src="images/placeholder.png">
+                </div>
+            </div>
         </div>
-        <div>
-
-        </div>
-        <div>
-            
-        </div>
-    </div>
+    </section>
     <div id="contactMePage">
 
     </div>
-    <script src="js/script.js"></script> 
 </body>
 </html>
