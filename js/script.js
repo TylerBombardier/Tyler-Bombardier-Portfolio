@@ -147,7 +147,7 @@ buttons.forEach(btn => {
 Apply 3d perspective to all project cards and handle the animation
 */
 
-const projects = document.querySelectorAll('.project');
+let projects = document.querySelectorAll('.project');
 
 projects.forEach(project => {
     let mouseX = 0, mouseY = 0, rotateX = 0, rotateY = 0;
@@ -164,14 +164,14 @@ projects.forEach(project => {
     };
 
     project.addEventListener('mousemove', e => {
-        const rect = project.getBoundingClientRect();
+        let rect = project.getBoundingClientRect();
         mouseX = e.clientX - rect.left;
         mouseY = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        let centerX = rect.width / 2;
+        let centerY = rect.height / 2;
 
-        rotateX = ((mouseY - centerY) / centerY) * 10;
-        rotateY = ((mouseX - centerX) / centerX) * -10;
+        rotateX = ((mouseY - centerY) / centerY) * 12; //Controls rotation amplitude on the X axis
+        rotateY = ((mouseX - centerX) / centerX) * -12; //Controls rotation amplitude on the Y axis
 
         if (!animationFrame) {
             animationFrame = requestAnimationFrame(updateTransform);

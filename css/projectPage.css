@@ -35,6 +35,7 @@ Project Title Styling
     position: relative;
     right: 1vw;
     bottom: 5vw;
+    transform: translateZ(0);
     transition: transform 0.3s ease;
     z-index: 5;
 }
@@ -64,6 +65,46 @@ Project Title Styling
 
 .project em{
     font-weight: 500;
+}
+
+.project ::after{
+    position: absolute;
+    left: 0px;
+    transition: transform 0.4s ease;
+    color: var(--background);
+    z-index: -2;
+}
+
+.project h1,.project h2{
+    transform-style: preserve-3d;
+}
+
+.project:hover ::after{
+    transform: perspective(2000px) translate(5px, 10px) translateZ(-70px);
+}
+
+#projectOne h1::after{
+    content: "Placeholder";
+}
+
+#projectOne h2::after{
+    content: "01";
+}
+
+#projectTwo h1::after{
+    content: "Placeholder"
+}
+
+#projectTwo h2::after{
+    content: "02";
+}
+
+#projectThree h1::after{
+    content: "Placeholder";
+}
+
+#projectThree h2::after{
+    content: "03";
 }
 
 /*
