@@ -113,20 +113,13 @@ function resizeSimulation() {
     Body.scale(rightWall, scaleY, 1);
 }
 
+//Variable trackers for all the methods
 let isTouching = false;
 let currentButton = 0;
 let applyBlastX = 0;
 let applyBlastY = 0;
 let lastScrollY = window.scrollY;
 let scrollDifference = 0;
-
-// Detect scroll, calculate scroll difference, add diffence to offset applyblast location.
-window.addEventListener('scroll', () => {
-    scrollDifference = window.scrollY - lastScrollY;
-    applyBlastY += scrollDifference; //Offsets applyblastY position to account for scrolling
-
-    lastScrollY = window.scrollY;
-});
 
 function applyScrollForce() {
     if (Math.abs(scrollDifference) > 1) { // Small threshold to ignore tiny jitters
@@ -153,63 +146,6 @@ function applyScrollForce() {
 }
 
 applyScrollForce();
-
-// /** MOBILE TOUCH UNUSED
-//  * MOBILE TOUCH MEHANIC
-//  * Flinging the balls upwards with a touch isn't possible due the same action being linked to scrolling upwards.
-//  */
-// // //Track if screen has been touched
-
-// // document.getElementById("homePage").addEventListener("touchstart", e=>{
-// //     isTouching = true;
-// //     currentButton = 0; //Assume attraction, mobile doesn't have left or right click
-
-// //     //start position defaults to 0 if this isn't here on first touch
-// //     posX = e.touches[0].pageX;
-// //     posY = e.touches[0].pageY;
-// // })
-
-// // //Tracks the position of touch
-// // document.getElementById("homePage").addEventListener("touchmove", e=>{
-// //     posX = e.touches[0].pageX;
-// //     posY = e.touches[0].pageY;
-// // })
-
-// // document.getElementById("homePage").addEventListener("touchend",e=>{
-// //     isTouching = false;
-// // })
-
-//Tracks the mouse's position on the page
-
-window.addEventListener("mousemove", e => {
-    applyBlastX = e.pageX;
-    applyBlastY = e.pageY;
-});
-
-document.getElementById("homePage").addEventListener("scroll", e=>{
-    let scrollDifference = window.scrollY - lastScrollY;
-    applyBlastY += scrollDifference;
-
-    lastScrollY = window.scrollY;
-});
-
-//Tracks if a mouse button is being held down
-document.getElementById("homePage").addEventListener("mousedown", e=>{
-    e.preventDefault();
-    isTouching = true;
-    currentButton = e.button;
-});
-
-//Tracks if a mouse button has stopped being held down
-document.getElementById("homePage").addEventListener("mouseup", e=>{
-    e.preventDefault();
-    isTouching = false;
-});
-
-// Prevents the context menu from appearing on the home page on a right click
-document.getElementById("homePage").addEventListener('contextmenu', e => {
-    e.preventDefault();
-}, true);
 
 //Creates a circle of desired size and weight
 function addCircle(radius, weight){
@@ -285,9 +221,45 @@ function blastLoop(){
 
 blastLoop();
 
+function biasedRandom(min, max, power) {
+  let skewedRandom = Math.pow(Math.random(), power);
+  return min + (max - min) * skewedRandom;
+}
+
+// Detect scroll, calculate scroll difference, add diffence to offset applyblast location.
+window.addEventListener('scroll', () => {
+    scrollDifference = window.scrollY - lastScrollY;
+    applyBlastY += scrollDifference; //Offsets applyblastY position to account for scrolling
+
+    lastScrollY = window.scrollY;
+});
+
+window.addEventListener("mousemove", e => {
+    applyBlastX = e.pageX;
+    applyBlastY = e.pageY;
+});
+
+//Tracks if a mouse button is being held down
+document.getElementById("homePage").addEventListener("mousedown", e=>{
+    e.preventDefault();
+    isTouching = true;
+    currentButton = e.button;
+});
+
+//Tracks if a mouse button has stopped being held down
+document.getElementById("homePage").addEventListener("mouseup", e=>{
+    e.preventDefault();
+    isTouching = false;
+});
+
+// Prevents the context menu from appearing on the home page on a right click
+document.getElementById("homePage").addEventListener('contextmenu', e => {
+    e.preventDefault();
+}, true);
+
 //Spawns i number iterations of circles
 for(let i = 0; i < 30; i++){
-    addCircle(20,10)
+    addCircle(biasedRandom(15,100,30),10)
 }
 
 //Checks for any resizing of the window, calls resize static elements function

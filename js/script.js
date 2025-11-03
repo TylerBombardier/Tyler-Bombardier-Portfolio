@@ -170,8 +170,8 @@ projects.forEach(project => {
         let centerX = rect.width / 2;
         let centerY = rect.height / 2;
 
-        rotateX = ((mouseY - centerY) / centerY) * 12; //Controls rotation amplitude on the X axis
-        rotateY = ((mouseX - centerX) / centerX) * -12; //Controls rotation amplitude on the Y axis
+        rotateX = ((mouseY - centerY) / centerY) * 10; //Controls rotation amplitude on the X axis
+        rotateY = ((mouseX - centerX) / centerX) * -10; //Controls rotation amplitude on the Y axis
 
         if (!animationFrame) {
             animationFrame = requestAnimationFrame(updateTransform);
