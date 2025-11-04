@@ -15,7 +15,7 @@ Arrow Styling
 
 div#upArrowContainer{
     position: relative;
-    bottom: 3vw;
+    bottom: 5vh;
     display: block;
     width: 100%;
     display: flex;
@@ -28,7 +28,19 @@ div#upArrowContainer{
     text-align: center;
     text-decoration: none;
     font-family: "Comic Sans MS";
-    font-size: 5vw;
+    font-size: 10vh;
+    transition: transform 0.4s ease, color 0.4s ease;
+    font-weight: 1000;
+}
+
+#upArrowContainer a:hover{
+    transform: scale(1.2);
+    color: var(--secondary-100);
+}
+
+#upArrowContainer a:active{
+    transform: scale(1.5);
+    color: var(--secondary-200);
 }
 
 

@@ -1,4 +1,12 @@
 /*
+Automatically finds the users theme preference
+*/
+
+document.documentElement.setAttribute('data-theme', 'dark');
+let prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+
+/*
 Handles changing the html tag for site theme transitions
 */
 let root = document.documentElement;
@@ -160,6 +168,9 @@ projects.forEach(project => {
             rotateY(${rotateY}deg)
             scale(1.05)
         `;
+        project.style.boxShadow = `
+            ${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0, 73, 77, 0.7)
+        `;
         animationFrame = requestAnimationFrame(updateTransform);
     };
 
@@ -182,5 +193,8 @@ projects.forEach(project => {
         cancelAnimationFrame(animationFrame);
         animationFrame = null;
         project.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+        project.style.boxShadow = `
+            0px 0px 15px rgba(0, 73, 77, 0.7)
+        `;
     });
 });
