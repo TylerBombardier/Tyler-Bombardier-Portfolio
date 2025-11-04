@@ -1,0 +1,39 @@
+/*
+Footer Styling
+*/
+
+footer{
+    height: 25vh;
+    border-top-left-radius: 40vw 5vw;
+    border-top-right-radius: 40vw 5vw;
+    background-image: linear-gradient(to top, var(--secondary-200), var(--secondary-100));
+}
+
+
+/*
+Contact Container Styling
+*/
+
+#contactContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+}
+
+#contactContainer > div{
+  display: flex;
+  gap: 20px;
+}
+
+#contactContainer img{
+  width: 7vh;
+  height: 7vh;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+#contactContainer img:hover{
+  transform: translateX(-10px) rotate(15deg);
+}
