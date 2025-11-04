@@ -9,6 +9,28 @@ footer{
     background-image: linear-gradient(to top, var(--secondary-200), var(--secondary-100));
 }
 
+/*
+Arrow Styling
+*/
+
+div#upArrowContainer{
+    position: relative;
+    bottom: 3vw;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#upArrowContainer a{
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Comic Sans MS";
+    font-size: 5vw;
+}
+
 
 /*
 Contact Container Styling
@@ -18,8 +40,7 @@ Contact Container Styling
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding-right: 20px;
+  height: calc(100%-2vw);
 }
 
 #contactContainer > div{
@@ -31,7 +52,6 @@ Contact Container Styling
   width: 7vh;
   height: 7vh;
   transition: transform 0.2s ease;
-  user-select: none;
 }
 
 #contactContainer img:hover{
