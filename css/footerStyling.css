@@ -6,7 +6,7 @@ footer{
     height: 25vh;
     border-top-left-radius: 40vw 5vw;
     border-top-right-radius: 40vw 5vw;
-    background-image: linear-gradient(to top, var(--secondary-200), var(--secondary-100));
+    background-image: linear-gradient(to top, rgba(118, 228, 255, 1), rgb(161, 236, 255));
 }
 
 /*
@@ -31,16 +31,17 @@ div#upArrowContainer{
     font-size: 10vh;
     transition: transform 0.4s ease, color 0.4s ease;
     font-weight: 1000;
+    color: rgb(175, 239, 255);
 }
 
 #upArrowContainer a:hover{
     transform: scale(1.2);
-    color: var(--secondary-100);
+    color: rgba(118, 228, 255, 1);
 }
 
 #upArrowContainer a:active{
     transform: scale(1.5);
-    color: var(--secondary-200);
+    color: rgb(51, 214, 255);
 }
 
 

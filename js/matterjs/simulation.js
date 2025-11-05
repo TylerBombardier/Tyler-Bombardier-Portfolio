@@ -123,7 +123,7 @@ let scrollDifference = 0;
 
 function applyScrollForce() {
     if (Math.abs(scrollDifference) > 1) { // Small threshold to ignore tiny jitters
-        let scrollVelocity = scrollDifference * 0.0010; // tune this for sensitivity
+        let scrollVelocity = scrollDifference * 0.0008; // tune this for sensitivity
 
         Composite.allBodies(world).forEach(shape => {
             if (!shape.isStatic) {
