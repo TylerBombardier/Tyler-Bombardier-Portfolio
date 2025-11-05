@@ -1,7 +1,30 @@
+/*
+Contact Page Styling
+*/
+
 #contactMePage{
     height: 30vh;
     min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
     color: var(--text);
+}
+
+/*
+Form Styling
+*/
+
+#formContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formContainer form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
