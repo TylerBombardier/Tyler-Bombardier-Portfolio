@@ -258,8 +258,8 @@ document.getElementById("homePage").addEventListener('contextmenu', e => {
 }, true);
 
 //Spawns i number iterations of circles
-for(let i = 0; i < 30; i++){
-    addCircle(biasedRandom(15,100,30),10)
+for(let i = 0; i < 50; i++){
+    addCircle(biasedRandom(15,50,30),10)
 }
 
 //Checks for any resizing of the window, calls resize static elements function
