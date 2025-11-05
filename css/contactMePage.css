@@ -27,4 +27,28 @@ Form Styling
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 30px;
+}
+
+/*
+Input Styling
+*/
+
+#formContainer input{
+    width: 400px;
+    height: 30px;
+}
+
+/*
+TextArea Styling
+*/
+
+#formContainer textarea{
+    max-height: 40%;
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 5vw;
+    width: 400px;
 }
