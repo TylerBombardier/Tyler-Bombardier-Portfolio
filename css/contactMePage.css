@@ -39,6 +39,13 @@ Input Styling
 #formContainer input{
     width: 400px;
     height: 30px;
+    padding: 10px;
+    border: 3px solid rgba(118, 228, 255, 1);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: var(--secondary-700);
+    background-color: var(--background);
 }
 
 /*
@@ -46,9 +53,15 @@ TextArea Styling
 */
 
 #formContainer textarea{
-    max-height: 40%;
-    max-width: 400px;
-    min-width: 400px;
-    min-height: 5vw;
+    max-height: 200px;
     width: 400px;
+    width: 400px;
+    padding: 10px;
+    border: 3px solid rgba(118, 228, 255, 1);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: var(--secondary-700);
+    background-color: var(--background);
+    resize: vertical; /* Allows vertical resizing only */
 }
