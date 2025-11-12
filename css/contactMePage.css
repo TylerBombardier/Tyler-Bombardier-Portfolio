@@ -3,7 +3,7 @@ Contact Page Styling
 */
 
 #contactMePage{
-    height: 30vh;
+    height: 100vh;
     min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
@@ -15,7 +15,7 @@ Form Styling
 */
 
 #formContainer{
-    height: 100%;
+    height: 80%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -46,6 +46,14 @@ Input Styling
     font-size: 16px;
     color: var(--secondary-700);
     background-color: var(--background);
+    box-shadow: 5px 0px 20px rgba(3, 146, 174, 0.5);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+}
+
+#formContainer input:focus{
+    padding: 20px;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 /*
@@ -54,6 +62,7 @@ TextArea Styling
 
 #formContainer textarea{
     max-height: 200px;
+    min-height: 70px;
     width: 400px;
     width: 400px;
     padding: 10px;
@@ -63,5 +72,48 @@ TextArea Styling
     font-size: 16px;
     color: var(--secondary-700);
     background-color: var(--background);
-    resize: vertical; /* Allows vertical resizing only */
+    resize: vertical; 
+    box-shadow: 5px 5px 20px rgba(3, 146, 174, 0.5);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+}
+
+
+#formContainer textarea:focus{
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/*
+Button Styling
+*/
+
+#formContainer button{
+    font-size: 2vh;
+    min-width: 7vh;
+    min-height: 2vh;
+    text-align: center;
+    padding: 10px 70px 10px 70px;
+    border: rgba(118, 228, 255, 1) solid 2px;
+    color: rgba(118, 228, 255, 1);
+    background-color: var(--background);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 25px rgba(118, 228, 255, 1);
+    display: inline-block;
+}
+
+#formContainer button:hover{
+    box-shadow: 0px 0px 5px var(--secondary);
+    transform: translateY(3px);
+}
+
+/*
+Contact Page Header Styling
+*/
+
+#contactPageHeader{
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 200;
 }
