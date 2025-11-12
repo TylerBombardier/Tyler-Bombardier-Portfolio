@@ -85,7 +85,7 @@ Project Title Styling
 }
 
 #projectOne h1::after{
-    content: "Placeholder";
+    content: "Simulation";
 }
 
 #projectOne h2::after{
@@ -93,7 +93,7 @@ Project Title Styling
 }
 
 #projectTwo h1::after{
-    content: "Placeholder"
+    content: "Power Picker"
 }
 
 #projectTwo h2::after{
@@ -101,7 +101,7 @@ Project Title Styling
 }
 
 #projectThree h1::after{
-    content: "Placeholder";
+    content: "Battle System";
 }
 
 #projectThree h2::after{
