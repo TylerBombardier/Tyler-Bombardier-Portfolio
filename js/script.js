@@ -93,7 +93,19 @@ let contentData = {
         header: "<h1>My Skills</h1>",
         body: `
         <p>
-        
+            I've built a strong foundation in several programming languages and technologies throughout my studies and personal projects. 
+            I'm experienced with Java, including JavaFX for building interactive applications, and I regularly use Python for logical problem-solving and scripting. 
+            I'm also comfortable working with web technologies like HTML, CSS, JavaScript, PHP, and SQL, allowing me to understand both front-end and back-end development.
+            </p>
+            <br>
+            <p>
+            Beyond coding, I'm familiar with tools such as Git and GitHub for version control, Gradle for build automation, and SketchUp for digital design work. 
+            I enjoy learning new technologies and adapting quickly to new environments, which helps me continue growing as a developer.
+            </p>
+            <br>
+            <p>
+            I also bring strong soft skills to my work: I communicate clearly, collaborate well with teams, stay organized, and approach challenges with patience and critical thinking. 
+            I'm motivated, open-minded, and always looking for opportunities to improve and take on new challenges.
         </p>
         `
     }
