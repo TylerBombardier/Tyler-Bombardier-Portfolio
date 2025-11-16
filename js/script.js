@@ -70,7 +70,7 @@ let contentData = {
         <p>
         I was formally introduced to the idea of coding in high school, and it's where everything began. 
         I quickly discovered how rewarding it is to solve the puzzle-like challenges in coding and seeing my creations come to life
-        on the screen and I’ve been hooked ever since.
+        on the screen and I've been hooked ever since.
         </p>
         <br>
         <p>
@@ -82,7 +82,7 @@ let contentData = {
         header: "<h1>Experience</h1>",
         body: `
         <p>
-        During my co-op placement at Code Ninja’s, I helped support youth coding classes by guiding students through debugging,
+        During my co-op placement at Code Ninja's, I helped support youth coding classes by guiding students through debugging,
          building small projects, and understanding new concepts. I worked closely with instructors to assist learners of all skill levels, 
          which strengthened my communication, teamwork, and ability to break down complex ideas into something clear and approachable.
          This experience also helped confirm what I love most about programming: problem-solving, collaboration, and creating things that work.
