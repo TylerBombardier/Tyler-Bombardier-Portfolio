@@ -4,6 +4,7 @@ Contact Page Styling
 
 #contactMePage{
     height: 100vh;
+    max-height: 100vh;
     min-height: 700px;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
@@ -15,7 +16,7 @@ Form Styling
 */
 
 #formContainer{
-    height: 80%;
+    height: 60%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -44,13 +45,14 @@ Input Styling
     border-radius: 5px;
     font-family: Arial, sans-serif;
     font-size: 16px;
-    color: var(--secondary-700);
+    color: rgba(118, 228, 255, 1);
     background-color: var(--background);
     box-shadow: 5px 0px 20px rgba(3, 146, 174, 0.5);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, color 0.4s ease;
 }
 
 #formContainer input:focus{
+    color: var(--secondary-700);
     padding: 20px;
     border-color: #007bff;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
@@ -70,16 +72,17 @@ TextArea Styling
     border-radius: 5px;
     font-family: Arial, sans-serif;
     font-size: 16px;
-    color: var(--secondary-700);
+    color: rgba(118, 228, 255, 1);
     background-color: var(--background);
     resize: vertical; 
     box-shadow: 5px 5px 20px rgba(3, 146, 174, 0.5);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, color 0.4s ease;
 }
 
 
 #formContainer textarea:focus{
     border-color: #007bff;
+    color: var(--secondary-700);
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
@@ -113,6 +116,7 @@ Contact Page Header Styling
 */
 
 #contactPageHeader{
+    padding-top: 200px;
     text-align: center;
     font-size: 3vw;
     font-weight: 200;
