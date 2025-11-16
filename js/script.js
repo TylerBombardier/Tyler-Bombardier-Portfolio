@@ -82,7 +82,10 @@ let contentData = {
         header: "<h1>Experience</h1>",
         body: `
         <p>
-        Experience in the field, education, volunteer work, personality.
+        During my co-op placement at Code Ninja’s, I helped support youth coding classes by guiding students through debugging,
+         building small projects, and understanding new concepts. I worked closely with instructors to assist learners of all skill levels, 
+         which strengthened my communication, teamwork, and ability to break down complex ideas into something clear and approachable.
+         This experience also helped confirm what I love most about programming: problem-solving, collaboration, and creating things that work.
         </p>
         `
     },
@@ -90,7 +93,7 @@ let contentData = {
         header: "<h1>My Skills</h1>",
         body: `
         <p>
-        My knowledge in programming languages. Level of skill. Languages I know. 
+        idk
         </p>
         `
     }

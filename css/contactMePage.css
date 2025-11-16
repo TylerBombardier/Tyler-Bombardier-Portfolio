@@ -63,10 +63,10 @@ TextArea Styling
 */
 
 #formContainer textarea{
+    width: 400px;
+    height: 200px;
     max-height: 200px;
     min-height: 70px;
-    width: 400px;
-    width: 400px;
     padding: 10px;
     border: 3px solid rgba(118, 228, 255, 1);
     border-radius: 5px;
@@ -117,7 +117,8 @@ Contact Page Header Styling
 
 #contactPageHeader{
     padding-top: 200px;
+    padding-bottom: 20px;
     text-align: center;
-    font-size: 3vw;
+    font-size: 50px;
     font-weight: 200;
 }
