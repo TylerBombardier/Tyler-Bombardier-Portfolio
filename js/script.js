@@ -93,7 +93,7 @@ let contentData = {
         header: "<h1>My Skills</h1>",
         body: `
         <p>
-        idk
+        
         </p>
         `
     }
