@@ -213,3 +213,28 @@ projects.forEach(project => {
         `;
     });
 });
+
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch("https://formspree.io/f/mblqwgva", {
+    method: "POST",
+    body: data,
+    headers: { "Accept": "application/json" }
+  })
+  .then(response => {
+    if (response.ok) {
+      document.getElementById("status").textContent = "Message sent!";
+      form.reset();
+    } else {
+      document.getElementById("status").textContent = "Oops! Something went wrong.";
+    }
+  })
+  .catch(error => {
+    document.getElementById("status").textContent = "Network error.";
+    console.error(error);
+  });
+});

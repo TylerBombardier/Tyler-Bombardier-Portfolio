@@ -122,3 +122,11 @@ Contact Page Header Styling
     font-size: 50px;
     font-weight: 200;
 }
+
+/*
+Status Message Styling
+*/
+
+#status{
+    text-align: center;
+}

@@ -4,10 +4,10 @@ Footer Styling
 
 footer{
   margin-top: 50px;
-    height: 25vh;
-    border-top-left-radius: 40vw 5vw;
-    border-top-right-radius: 40vw 5vw;
-    background-image: linear-gradient(to top, rgba(118, 228, 255, 1), rgb(161, 236, 255));
+  height: 25vh;
+  border-top-left-radius: 40vw 5vw;
+  border-top-right-radius: 40vw 5vw;
+  background-image: linear-gradient(to top, rgba(118, 228, 255, 1), rgb(161, 236, 255));
 }
 
 /*
@@ -15,34 +15,34 @@ Arrow Styling
 */
 
 div#upArrowContainer{
-    position: relative;
-    bottom: 5vh;
-    display: block;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  bottom: 5vh;
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #upArrowContainer a{
-    background-color: transparent;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Comic Sans MS";
-    font-size: 10vh;
-    transition: transform 0.4s ease, color 0.4s ease;
-    font-weight: 1000;
-    color: rgb(175, 239, 255);
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Comic Sans MS";
+  font-size: 10vh;
+  transition: transform 0.4s ease, color 0.4s ease;
+  font-weight: 1000;
+  color: rgb(175, 239, 255);
 }
 
 #upArrowContainer a:hover{
-    transform: scale(1.2);
-    color: rgba(118, 228, 255, 1);
+  transform: scale(1.2);
+  color: rgba(118, 228, 255, 1);
 }
 
 #upArrowContainer a:active{
-    transform: scale(1.5);
-    color: rgb(51, 214, 255);
+  transform: scale(1.5);
+  color: rgb(51, 214, 255);
 }
 
 
