@@ -3,6 +3,7 @@ Footer Styling
 */
 
 footer{
+  margin-top: 50px;
     height: 25vh;
     border-top-left-radius: 40vw 5vw;
     border-top-right-radius: 40vw 5vw;
