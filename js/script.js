@@ -173,53 +173,69 @@ Apply 3d perspective to all project cards and handle the animation
 let projects = document.querySelectorAll('.project');
 
 projects.forEach(project => {
-    let mouseX = 0, mouseY = 0, rotateX = 0, rotateY = 0;
-    let animationFrame;
+    let rotateX = 0, rotateY = 0;
+    let animationFrame = null;
 
-    const updateTransform = () => {
+    let updateTransform = () => {
+
+        // Handles actually tillting the project card with perspective
         project.style.transform = `
             perspective(2000px)
             rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
+            rotateY(${-rotateY}deg)
             scale(1.05)
         `;
+
+        // Handles creating the box shadow tilt effect
         project.style.boxShadow = `
-            ${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0, 73, 77, 0.7)
+            ${rotateY * 2}px ${rotateX * 2}px 30px rgba(0, 73, 77, 0.7)
         `;
-        animationFrame = requestAnimationFrame(updateTransform);
+
+        // Continue animating if project card is still active, pass 
+        if (animationFrame !== null) {
+            animationFrame = requestAnimationFrame(updateTransform);
+        }
     };
 
     project.addEventListener('mousemove', e => {
         let rect = project.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-        let centerX = rect.width / 2;
-        let centerY = rect.height / 2;
 
-        rotateX = ((mouseY - centerY) / centerY) * 10; //Controls rotation amplitude on the X axis
-        rotateY = ((mouseX - centerX) / centerX) * -10; //Controls rotation amplitude on the Y axis
+        // Find the center position of the card
+        let centerX = rect.left + rect.width / 2;
+        let centerY = rect.top + rect.height / 2;
 
-        if (!animationFrame) {
+        // Calculates the amount of pixels the mouse is from the center
+        offsetFromCenterX = e.clientY - centerY;
+        offsetFromCenterY = e.clientX - centerX;
+
+        // Calculate degree of rotation relative to the mouse position on the card
+        rotateX = (offsetFromCenterX / (rect.width / 2)) * 12;
+        rotateY = (offsetFromCenterY / (rect.height / 2)) * 6;
+
+        // Start animation loop if not already running
+        if (animationFrame === null) {
             animationFrame = requestAnimationFrame(updateTransform);
         }
     });
 
     project.addEventListener('mouseleave', () => {
+        // Cancels the current animation frame
         cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-        project.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-        project.style.boxShadow = `
-            0px 0px 15px rgba(0, 73, 77, 0.7)
-        `;
+        animationFrame = null; //Stops subsequent animation frames
+
+        // Resets position & shadow
+        project.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        project.style.boxShadow = '0px 0px 15px rgba(0, 73, 77, 0.7)';
     });
 });
 
 document.getElementById("contactForm").addEventListener("submit", e => {
   e.preventDefault();
 
-  const form = e.target;
-  const data = new FormData(form);
+  let form = e.target;
+  let data = new FormData(form);
 
+  //Fetches the formspree API
   fetch("https://formspree.io/f/mblqwgva", {
     method: "POST",
     body: data,
