@@ -60,7 +60,7 @@ Loads content into the about page on a button press
 */
 
 let contentData = {
-    "aboutMe": { //Talking about myself in a friendly manner.
+    "aboutMe": { //Talking about myself, who I am, what my hobbies are. etc.
         header: "<h1>Myself</h1>",
         body: `
         <p>I'm a Mobile Application Development student at St. Clair College with a strong passion for puzzle-solving. 
@@ -78,7 +78,7 @@ let contentData = {
         </p>
         `
     },
-    "experience": { //Talking about my real experience in the field, the skills and experience I've gained
+    "experience": { //Talking about my real experience in project creation and jobs.
         header: "<h1>Experience</h1>",
         body: `
         <p>
@@ -95,7 +95,7 @@ let contentData = {
         </p>
         `
     },
-    "skills": { //Talking about my knowledge of programming languages and my understand of internet and technology
+    "skills": { //Talking about my knowledge of programming languages, my understanding of IT, and my soft skills.
         header: "<h1>My Skills</h1>",
         body: `
             <p>
