@@ -87,12 +87,23 @@ let contentData = {
          which strengthened my communication, teamwork, and ability to break down complex ideas into something clear and approachable.
          This experience also helped confirm what I love most about programming: problem-solving, collaboration, and creating things that work.
         </p>
+        <br>
+        <p>
+        I've had experience developing projects with my fellow developers in class. Developing long-term projects
+        with Database functionality, object oriented design principles, and the production pipeline with proper 
+        communication between teammates ensuring issues are resolved and milestones are met.
+        </p>
         `
     },
     "skills": { //Talking about my knowledge of programming languages and my understand of internet and technology
         header: "<h1>My Skills</h1>",
         body: `
-        <p>
+            <p>
+            I bring strong soft skills to my work: I communicate clearly, collaborate well with teams, stay organized, and approach challenges with patience and critical thinking. 
+            I'm motivated, open-minded, and always looking for opportunities to improve and take on new challenges.
+            </p>
+            <br>
+            <p>
             I've built a strong foundation in several programming languages and technologies throughout my studies and personal projects. 
             I'm experienced with Java, including JavaFX for building interactive applications, and I regularly use Python for logical problem-solving and scripting. 
             I'm also comfortable working with web technologies like HTML, CSS, JavaScript, PHP, and SQL, allowing me to understand both front-end and back-end development.
@@ -102,11 +113,6 @@ let contentData = {
             Beyond coding, I'm familiar with tools such as Git and GitHub for version control, Gradle for build automation, and SketchUp for digital design work. 
             I enjoy learning new technologies and adapting quickly to new environments, which helps me continue growing as a developer.
             </p>
-            <br>
-            <p>
-            I also bring strong soft skills to my work: I communicate clearly, collaborate well with teams, stay organized, and approach challenges with patience and critical thinking. 
-            I'm motivated, open-minded, and always looking for opportunities to improve and take on new challenges.
-        </p>
         `
     }
 };
