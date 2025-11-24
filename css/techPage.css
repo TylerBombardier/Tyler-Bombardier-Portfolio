@@ -29,8 +29,8 @@ Image Styling
     background-color: var(--background);
     padding: 2vw;
     border-radius: 0.5vw;
-    border: var(--accent) solid 0.2vw;
-    box-shadow: 0px 0px 20px var(--secondary);
+    border: var(--secondary) solid 0.2vw;
+    box-shadow: 0px 0px 30px var(--secondary);
 }
 
 #techPage #techImageContainer{
@@ -49,5 +49,5 @@ Image Styling
 }
 
 #techPage .imgContainer:hover img{
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) scale(1.2);
 }
