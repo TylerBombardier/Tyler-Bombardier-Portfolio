@@ -81,7 +81,7 @@ Project Title Styling
 }
 
 .project:hover ::after{
-    transform: perspective(2000px) translate(5px, 10px) translateZ(-70px);
+    transform: perspective(2000px) translate(5px, 10px) translateZ(-50px);
 }
 
 #projectOne h1::after{

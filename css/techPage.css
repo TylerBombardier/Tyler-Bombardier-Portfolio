@@ -1,3 +1,53 @@
 /**
 Page for styling the page that describes technical skills and languages learned
 */
+
+#techPage{
+    min-height: 50vw;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#techPage h1{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 200;
+    padding-top: 100px;
+    color: var(--text);
+}
+
+@media screen and (max-width: 500px) {
+    #techPage h1{
+        font-size: 45px;
+    }
+}
+
+/*
+Image Styling
+*/
+
+#techPage .imgContainer{
+    background-color: var(--background);
+    padding: 2vw;
+    border-radius: 0.5vw;
+    border: var(--accent) solid 0.2vw;
+    box-shadow: 0px 0px 20px var(--secondary);
+}
+
+#techPage #techImageContainer{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 5vw 30px;
+    gap: 7vw;
+}
+
+#techPage img{
+    width: 10vw;
+    height: 10vw;
+    transition: transform 0.8s ease-in-out;
+}
+
+#techPage .imgContainer:hover img{
+    transform: rotateY(360deg);
+}
