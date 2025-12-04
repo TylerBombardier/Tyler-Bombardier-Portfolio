@@ -93,7 +93,7 @@ Project Title Styling
 }
 
 #projectTwo h1::after{
-    content: "Power Picker"
+    content: "Shopping Cart"
 }
 
 #projectTwo h2::after{
