@@ -8,7 +8,7 @@ Navigation Bar Styling
     height: 6vh;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 500;
-    transform: translateX(-100vw);
+    transform: translateX(-200%);
     transition: transform 1s ease;
     z-index: 10;
 }
@@ -31,13 +31,10 @@ nav div{
 }
 
 nav ul{
-    background: linear-gradient(to bottom, rgba(118, 228, 255, 0.4), var(--secondary));
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border: solid var(--text) 1px;
+    background-color: rgba(118, 228, 255, 0.5);
     display: flex;
-    gap: 60px;
-    font-size: 2rem;
+    gap: 5vw;
+    font-size: 20px;
     height: 100%;
     align-items: center;
     padding: 0 30px 0 30px;
@@ -54,48 +51,11 @@ nav ul li a {
   text-decoration: none;         
   color: var(--text);              
   cursor: pointer;
-  position: relative;   
-  text-shadow: 0px 3px 5px var(--accentText);  
-  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  position: relative;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
 }
 
 nav ul li a:hover{
-    transform: translateY(-5px);
-    text-shadow: 0px 3px 10px var(--accentText); 
-}
-
-/*
-Adaptive Styling
-*/
-
-@media screen and (max-width: 925px) {
-    nav ul{
-        font-size: 3.7vw;
-        gap: 30px;
-    }
-
-    nav div{
-        right: 0px;
-    }
-}
-
-@media screen and (max-width: 755px) {
-    nav ul{
-        font-size: 3.5vw;
-    }
-}
-
-@media screen and (max-width: 670px) {
-    nav ul{
-        font-size: 3.2vw;
-    }
-}
-
-@media screen and (max-width: 620px) {
-    nav ul{
-        font-size: 2.8vw;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
+    transform: translateY(-5px) scale(1);
+    letter-spacing: 2px;
 }

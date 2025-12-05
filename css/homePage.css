@@ -130,34 +130,6 @@ Title Container Styling
   transform: translateY(3px);
 }
 
-
-/*
-Contact Container Styling
-*/
-
-#contactContainer{
-  display: flex;
-  justify-content: right;
-  padding-right: 20px;
-}
-
-#contactContainer > div{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-#contactContainer img{
-  width: 50px;
-  height: 50px;
-  transition: transform 0.2s ease;
-  user-select: none;
-}
-
-#contactContainer img:hover{
-  transform: translateX(-10px) rotate(15deg);
-}
-
 @media screen and (max-width: 950px) {
   #homeText{
     font-size: 6vw;

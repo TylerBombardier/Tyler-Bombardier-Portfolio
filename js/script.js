@@ -1,4 +1,12 @@
 /*
+Automatically finds the users theme preference
+*/
+
+document.documentElement.setAttribute('data-theme', 'dark');
+let prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+
+/*
 Handles changing the html tag for site theme transitions
 */
 let root = document.documentElement;
@@ -52,7 +60,7 @@ Loads content into the about page on a button press
 */
 
 let contentData = {
-    "aboutMe": { //Talking about myself in a friendly manner.
+    "aboutMe": { //Talking about myself, who I am, what my hobbies are. etc.
         header: "<h1>Myself</h1>",
         body: `
         <p>I'm a Mobile Application Development student at St. Clair College with a strong passion for puzzle-solving. 
@@ -62,7 +70,7 @@ let contentData = {
         <p>
         I was formally introduced to the idea of coding in high school, and it's where everything began. 
         I quickly discovered how rewarding it is to solve the puzzle-like challenges in coding and seeing my creations come to life
-        on the screen and I’ve been hooked ever since.
+        on the screen and I've been hooked ever since.
         </p>
         <br>
         <p>
@@ -70,20 +78,41 @@ let contentData = {
         </p>
         `
     },
-    "experience": { //Talking about my real experience in the field, the skills and experience I've gained
+    "experience": { //Talking about my real experience in project creation and jobs.
         header: "<h1>Experience</h1>",
         body: `
         <p>
-        Experience in the field, education, volunteer work, personality.
+        During my co-op placement at Code Ninja's, I helped support youth coding classes by guiding students through debugging,
+         building small projects, and understanding new concepts. I worked closely with instructors to assist learners of all skill levels, 
+         which strengthened my communication, teamwork, and ability to break down complex ideas into something clear and approachable.
+         This experience also helped confirm what I love most about programming: problem-solving, collaboration, and creating things that work.
+        </p>
+        <br>
+        <p>
+        I've had experience developing projects with my fellow developers in class. Developing long-term projects
+        with Database functionality, object oriented design principles, and the production pipeline with proper 
+        communication between teammates ensuring issues are resolved and milestones are met.
         </p>
         `
     },
-    "skills": { //Talking about my knowledge of programming languages and my understand of internet and technology
+    "skills": { //Talking about my knowledge of programming languages, my understanding of IT, and my soft skills.
         header: "<h1>My Skills</h1>",
         body: `
-        <p>
-        My knowledge in programming languages. Level of skill. Languages I know. 
-        </p>
+            <p>
+            I bring strong soft skills to my work: I communicate clearly, collaborate well with teams, stay organized, and approach challenges with patience and critical thinking. 
+            I'm motivated, open-minded, and always looking for opportunities to improve and take on new challenges.
+            </p>
+            <br>
+            <p>
+            I've built a strong foundation in several programming languages and technologies throughout my studies and personal projects. 
+            I'm experienced with Java, including JavaFX for building interactive applications, and I regularly use Python for logical problem-solving and scripting. 
+            I'm also comfortable working with web technologies like HTML, CSS, JavaScript, PHP, and SQL, allowing me to understand both front-end and back-end development.
+            </p>
+            <br>
+            <p>
+            Beyond coding, I'm familiar with tools such as Git and GitHub for version control, Gradle for build automation, and SketchUp for digital design work. 
+            I enjoy learning new technologies and adapting quickly to new environments, which helps me continue growing as a developer.
+            </p>
         `
     }
 };
@@ -147,40 +176,87 @@ buttons.forEach(btn => {
 Apply 3d perspective to all project cards and handle the animation
 */
 
-const projects = document.querySelectorAll('.project');
+let projects = document.querySelectorAll('.project');
 
 projects.forEach(project => {
-    let mouseX = 0, mouseY = 0, rotateX = 0, rotateY = 0;
-    let animationFrame;
+    let rotateX = 0, rotateY = 0;
+    let animationFrame = null;
 
-    const updateTransform = () => {
+    let updateTransform = () => {
+
+        // Handles actually tillting the project card with perspective
         project.style.transform = `
             perspective(2000px)
             rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
+            rotateY(${-rotateY}deg)
             scale(1.05)
         `;
-        animationFrame = requestAnimationFrame(updateTransform);
+
+        // Handles creating the box shadow tilt effect
+        project.style.boxShadow = `
+            ${rotateY * 2}px ${rotateX * 2}px 30px rgba(0, 73, 77, 0.7)
+        `;
+
+        // Continue animating if project card is still active, pass 
+        if (animationFrame !== null) {
+            animationFrame = requestAnimationFrame(updateTransform);
+        }
     };
 
     project.addEventListener('mousemove', e => {
-        const rect = project.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        let rect = project.getBoundingClientRect();
 
-        rotateX = ((mouseY - centerY) / centerY) * 10;
-        rotateY = ((mouseX - centerX) / centerX) * -10;
+        // Find the center position of the card
+        let centerX = rect.left + rect.width / 2;
+        let centerY = rect.top + rect.height / 2;
 
-        if (!animationFrame) {
+        // Calculates the amount of pixels the mouse is from the center
+        offsetFromCenterX = e.clientY - centerY;
+        offsetFromCenterY = e.clientX - centerX;
+
+        // Calculate degree of rotation relative to the mouse position on the card
+        rotateX = (offsetFromCenterX / (rect.width / 2)) * 12;
+        rotateY = (offsetFromCenterY / (rect.height / 2)) * 6;
+
+        // Start animation loop if not already running
+        if (animationFrame === null) {
             animationFrame = requestAnimationFrame(updateTransform);
         }
     });
 
     project.addEventListener('mouseleave', () => {
+        // Cancels the current animation frame
         cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-        project.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+        animationFrame = null; //Stops subsequent animation frames
+
+        // Resets position & shadow
+        project.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        project.style.boxShadow = '0px 0px 15px rgba(0, 73, 77, 0.7)';
     });
+});
+
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  let form = e.target;
+  let data = new FormData(form);
+
+  //Fetches the formspree API
+  fetch("https://formspree.io/f/mblqwgva", {
+    method: "POST",
+    body: data,
+    headers: { "Accept": "application/json" }
+  })
+  .then(response => {
+    if (response.ok) {
+      document.getElementById("status").textContent = "Message sent!";
+      form.reset();
+    } else {
+      document.getElementById("status").textContent = "Oops! Something went wrong.";
+    }
+  })
+  .catch(error => {
+    document.getElementById("status").textContent = "Network error.";
+    console.error(error);
+  });
 });

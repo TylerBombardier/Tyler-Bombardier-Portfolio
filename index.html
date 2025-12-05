@@ -11,18 +11,17 @@
         <link rel="stylesheet" href="css/themeToggle.css">
         <link rel="stylesheet" href="css/editButton.css">
         <link rel="stylesheet" href="css/aboutMePage.css"> 
+        <link rel="stylesheet" href="css/techPage.css">
         <link rel="stylesheet" href="css/projectPage.css"> 
         <link rel="stylesheet" href="css/contactMePage.css"> 
         <link rel="stylesheet" href="css/colors.css">
-        <!--Detects and applies color theme-->
-        <script>
-            document.documentElement.setAttribute('data-theme', 'dark');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-        </script>
+        <link rel="stylesheet" href="css/footerStyling.css">
         <script defer src="js/script.js"></script> 
         <script defer src="js/matterjs/matter.js"></script>
         <script defer src="js/matterjs/simulation.js"></script>
+        <title>
+            Tyler Bombardier | Portfolio
+        </title>
     </head>
 <body>
     <div id="physicsContainer">
@@ -47,9 +46,6 @@
         </nav>
     </div>
     <section id="homePage">
-        <div id="col1" class="visible">
-            
-        </div>
         <div id="col2" class="visible">
             <div id="heroContainer">
                 <div id="textContainer">
@@ -58,18 +54,6 @@
                 <div id="viewWorkButton">
                     <a href="#aboutMePage">
                         About Me
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="col3" class="visible">
-            <div id="contactContainer">
-                <div>
-                    <a href="https://github.com/TylerBombardier">
-                        <img src="images/github-mark.png" class="socialIcon" draggable="false">
-                    </a>
-                    <a href="https://www.linkedin.com/in/tylercodes/">
-                        <img src="images/InBug-Black.png" class="socialIcon" draggable="false">
                     </a>
                 </div>
             </div>
@@ -109,72 +93,115 @@
             </div>
         </div>
     </section>
+    <section id="techPage">
+        <h1>Technology</h1>
+        <div id="techImageContainer">
+            <div class="imgContainer">
+                <img src="images/angular_gradient.png" height="100px">
+            </div>
+            <div class="imgContainer">
+                <img src="images/php-logo-bigger.png" width="100px">
+            </div>
+            <div class="imgContainer">
+                <img src="images/java.png" height="100px">
+            </div>
+            <div class="imgContainer">
+                <img src="images/js.png" height="100px">
+            </div>
+            <div class="imgContainer">
+                <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains logo." width="150px">
+            </div>
+        </div>
+    </section>
     <section id="projectPage">
         <div id="projectContainer">
             <div id="projectOne" class="project">
                 <div class="projectTitle">
-                    <h1><em>Placeholder</em></h1>
+                    <h1><em>Simulation</em></h1>
                     <h2>01</h2>
                 </div>
-                <button>
+                <a class="projectButton" href="https://github.com/TylerBombardier/2d-physics-sandbox" target="_blank">
                     View Work
-                </button>
+                </a>
                 <div class="projectDesc">
                     <p>
-                        Short description describing what is inside the project.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        A fully interactive 2D sandbox built using the Matter.js physics engine. 
+                        This project lets users spawn shapes, manipulate physics objects, 
+                        and experiment with gravity, collisions, and constraints in real time. 
+                        It was designed as both a learning tool and a fun environment for exploring physics-based interactions. 
                     </p>
                 </div>
                 <div class="projectGraphic">
-                    <img src="images/placeholder.png">
+                    <img src="images/sandbox.png">
                 </div>
             </div>
             <div id="projectTwo" class="project">
                 <div class="projectTitle">
-                    <h1><em>Placeholder</em></h1>
+                    <h1><em>Shopping Cart</em></h1>
                     <h2>02</h2>
                 </div>
-                <button>
+                <a class="projectButton" href="https://github.com/TylerBombardier/shopping-cart-system" target="_blank">
                     View Work
-                </button>
+                </a>
                 <div class="projectDesc">
                     <p>
-                        Short description describing what is inside the project.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        A simple e-commerce shopping cart system prototype that allows the user to add items to their Cart, view their cart,
+                        adjust product quantities, and create orders with payment information. Uses Objected Oriented principles of design 
+                        and utilizes the MaterialFX Library to enhance the JavaFX applications styling.
                     </p>
                 </div>
                 <div class="projectGraphic">
-                    <img src="images/placeholder.png">
+                    <img src="images/shoppingcartdemo.png">
                 </div>
             </div>
             <div id="projectThree" class="project">
                 <div class="projectTitle">
-                    <h1><em>Placeholder</em></h1>
+                    <h1><em>Calendar</em></h1>
                     <h2>03</h2>
                 </div>
-                <button>
+                <a class="projectButton" href="https://github.com/ChrisMoloci/Chronos" target="_blank">
                     View Work
-                </button>
+                </a>
                 <div class="projectDesc">
                     <p>
-                        Short description describing what is inside the project.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        An event management calendar application built in JavaFX with database functionality, user creation and management,
+                        and categorization of calendar events. Built in cooperation with a class partner, Chris Moloci.
                     </p>
                 </div>
                 <div class="projectGraphic">
-                    <img src="images/placeholder.png">
+                    <img src="images/calendar.png">
                 </div>
             </div>
         </div>
     </section>
-    <div id="contactMePage">
-
-    </div>
+    <section id="contactMePage">
+        <div>
+            <h2 id="contactPageHeader">Contact Me</h2>
+        </div>
+        <p id="status"></p>
+        <div id="formContainer">
+            <form id="contactForm" method="post">
+                <input name="Name" id="name" type="text" placeholder="Name">
+                <input name="Email" id="email" type="email" placeholder="Email">
+                <textarea maxlength="1000" name="Message" id="message" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div id="upArrowContainer">
+            <a href="#homePage">^</a>
+        </div>
+        <div id="contactContainer">
+            <div>
+                <a href="https://github.com/TylerBombardier">
+                    <img src="images/github-mark.png" class="socialIcon" draggable="false">
+                </a>
+                <a href="https://www.linkedin.com/in/tylercodes/">
+                    <img src="images/InBug-Black.png" class="socialIcon" draggable="false">
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -24,6 +24,7 @@
     background-color: rgba(118, 228, 255, 1);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     transform-style: preserve-3d;
+    box-shadow: 0px 0px 15px rgba(0, 73, 77, 0.7);
     perspective: 1000px;
 }
 
@@ -35,6 +36,7 @@ Project Title Styling
     position: relative;
     right: 1vw;
     bottom: 5vw;
+    transform: translateZ(0);
     transition: transform 0.3s ease;
     z-index: 5;
 }
@@ -66,37 +68,82 @@ Project Title Styling
     font-weight: 500;
 }
 
+.project ::after{
+    position: absolute;
+    left: 0px;
+    transition: transform 0.4s ease;
+    color: var(--background);
+    z-index: -2;
+}
+
+.project h1,.project h2{
+    transform-style: preserve-3d;
+}
+
+.project:hover ::after{
+    transform: perspective(2000px) translate(5px, 10px) translateZ(-50px);
+}
+
+#projectOne h1::after{
+    content: "Simulation";
+}
+
+#projectOne h2::after{
+    content: "01";
+}
+
+#projectTwo h1::after{
+    content: "Shopping Cart"
+}
+
+#projectTwo h2::after{
+    content: "02";
+}
+
+#projectThree h1::after{
+    content: "Calendar";
+}
+
+#projectThree h2::after{
+    content: "03";
+}
+
 /*
-Button Styling
+Anchor Styling
 */
 
-#projectPage button{
+#projectPage .projectButton{
     cursor: pointer;
     color: var(--projectText);
     border: solid var(--projectText) 1px;
     background-color: transparent;
-    top: 14vw;
     position: relative;
+    display: inline-block;
+    position: relative;
+    top: 14vw;
+    text-decoration: none;
+    text-align: center;
+    padding: 1vw;
     margin: 1vw;
     width: 10vw;
-    height: 3vw;
+    height: 1vw;
     font-size: 1vw;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 1000;
     transition: transform 0.4s ease, background-color 0.4s ease, font-size 0.5s ease, letter-spacing 0.5s ease-out, width 0.4s ease, height 0.4s ease;
 }
 
-.project:hover button{
+.project:hover .projectButton{
     transform: translateZ(20px);
 }
 
-#projectPage button:hover{
+#projectPage .projectButton:hover{
     background-color: rgba(255, 255, 255, 0.244);
     transform: scale(1.15) translateZ(40px);
     font-size: 1.25vw;
     letter-spacing: 0.2vw;
     width: 12vw;
-    height: 5vw;
+    height: 1vw;
 }
 
 /*
@@ -131,17 +178,14 @@ Graphic Styling
 .projectGraphic{
     position: absolute;
     margin: 1vw;
-    height: calc(100% - 2vw);
-    width: 70%;
+    height: calc(90% - 2vw);
+    z-index: -10;
     top: 0;
     right: 0;
 }
 
 .projectGraphic img{
     height: 100%;
-    width: 100%;
-    object-fit: cover;
-    mask-image: linear-gradient(to right, transparent, black 30%);
 }
 
 @media screen and (max-width: 1000px) {
