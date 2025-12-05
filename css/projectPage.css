@@ -179,16 +179,13 @@ Graphic Styling
     position: absolute;
     margin: 1vw;
     height: calc(100% - 2vw);
-    width: 70%;
+    z-index: -10;
     top: 0;
     right: 0;
 }
 
 .projectGraphic img{
     height: 100%;
-    width: 100%;
-    object-fit: cover;
-    mask-image: linear-gradient(to right, transparent, black 30%);
 }
 
 @media screen and (max-width: 1000px) {
